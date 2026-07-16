@@ -1,0 +1,2206 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="referrer" content="no-referrer">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'unsafe-inline' 'unsafe-eval' 'wasm-unsafe-eval' blob: data: https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://esm.sh https://fonts.bunny.net https://fonts.googleapis.com https://fonts.gstatic.com https://unpkg.com; style-src 'unsafe-inline' blob: data: https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://esm.sh https://fonts.bunny.net https://fonts.googleapis.com https://fonts.gstatic.com https://unpkg.com; img-src blob: data: https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://esm.sh https://fonts.bunny.net https://fonts.googleapis.com https://fonts.gstatic.com https://unpkg.com; font-src blob: data: https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://esm.sh https://fonts.bunny.net https://fonts.googleapis.com https://fonts.gstatic.com https://unpkg.com; media-src blob: data: https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://esm.sh https://fonts.bunny.net https://fonts.googleapis.com https://fonts.gstatic.com https://unpkg.com; worker-src blob:; connect-src blob: data:; frame-src 'self'; object-src 'none'; base-uri 'none'; form-action 'none'">
+<title>trek-marlin-6-teaching-3d.html</title>
+<style>:root{color-scheme:light dark;background:light-dark(rgb(255 255 255), rgb(24 24 24))}html,body{margin:0}body{box-sizing:border-box;padding:1rem;background:inherit}iframe{display:block;width:100%;max-width:736px;height:calc(100vh - 2rem);margin:0 auto;border:0}</style>
+</head>
+<body>
+<iframe id="codex-visualization" sandbox="allow-scripts" scrolling="no" referrerpolicy="no-referrer" title="trek-marlin-6-teaching-3d.html" data-srcdoc="&lt;!doctype html&gt;
+&lt;html lang=&quot;zh-CN&quot;&gt;
+&lt;head&gt;
+&lt;meta charset=&quot;utf-8&quot;&gt;
+&lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1&quot;&gt;
+&lt;meta name=&quot;referrer&quot; content=&quot;no-referrer&quot;&gt;
+&lt;meta http-equiv=&quot;Content-Security-Policy&quot; content=&quot;default-src 'none'; script-src 'unsafe-inline' 'unsafe-eval' 'wasm-unsafe-eval' blob: data: https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://esm.sh https://fonts.bunny.net https://fonts.googleapis.com https://fonts.gstatic.com https://unpkg.com; style-src 'unsafe-inline' blob: data: https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://esm.sh https://fonts.bunny.net https://fonts.googleapis.com https://fonts.gstatic.com https://unpkg.com; img-src blob: data: https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://esm.sh https://fonts.bunny.net https://fonts.googleapis.com https://fonts.gstatic.com https://unpkg.com; font-src blob: data: https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://esm.sh https://fonts.bunny.net https://fonts.googleapis.com https://fonts.gstatic.com https://unpkg.com; media-src blob: data: https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://esm.sh https://fonts.bunny.net https://fonts.googleapis.com https://fonts.gstatic.com https://unpkg.com; worker-src blob:; connect-src blob: data:; frame-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'&quot;&gt;
+&lt;title&gt;trek-marlin-6-teaching-3d.html&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;script&gt;(() =&gt; {
+  const root = document.documentElement;
+  const mediaQuery = globalThis.matchMedia(&quot;(prefers-color-scheme: dark)&quot;);
+  const apply = Reflect.apply;
+  const isArray = Array.isArray;
+  const parentWindow = globalThis.parent;
+  /**
+   * @param {object} prototype
+   * @param {string} property
+   */
+  const getPrototypeGetter = (prototype, property) =&gt; {
+    // oxlint-disable-next-line typescript/unbound-method -- invoked through captured Reflect.apply
+    const getter = Object.getOwnPropertyDescriptor(prototype, property)?.get;
+    if (getter == null) {
+      throw new Error(`Missing ${property} getter`);
+    }
+    return getter;
+  };
+  const getMessageData = getPrototypeGetter(MessageEvent.prototype, &quot;data&quot;);
+  const getMessagePorts = getPrototypeGetter(MessageEvent.prototype, &quot;ports&quot;);
+  const getMessageSource = getPrototypeGetter(MessageEvent.prototype, &quot;source&quot;);
+  // oxlint-disable-next-line typescript/unbound-method -- captured before the untrusted fragment runs
+  const addHostMessageListener = MessagePort.prototype.addEventListener;
+  // oxlint-disable-next-line typescript/unbound-method -- captured before the untrusted fragment runs
+  const postHostMessage = MessagePort.prototype.postMessage;
+  // oxlint-disable-next-line typescript/unbound-method -- captured before the untrusted fragment runs
+  const startHostPort = MessagePort.prototype.start;
+  // oxlint-disable-next-line typescript/unbound-method -- captured before the untrusted fragment runs
+  const stopMessagePropagation = Event.prototype.stopImmediatePropagation;
+  /** @type {MessagePort | null} */
+  let hostPort = null;
+  const postToHost = (type, payload) =&gt; {
+    if (hostPort != null) {
+      apply(postHostMessage, hostPort, [{ type, ...payload }]);
+    }
+  };
+  const openExternal = ({ href }) =&gt; {
+    if (globalThis.navigator.userActivation?.isActive === true) {
+      postToHost(&quot;open-external&quot;, { href });
+    }
+  };
+  const sendFollowUpMessage = ({ prompt, title }) =&gt; {
+    if (globalThis.navigator.userActivation?.isActive === true) {
+      postToHost(&quot;follow-up&quot;, { prompt, title });
+    }
+    return Promise.resolve();
+  };
+  const syncTheme = () =&gt; {
+    const theme = mediaQuery.matches ? &quot;dark&quot; : &quot;light&quot;;
+    root.dataset.theme = theme;
+    globalThis.openai = {
+      ...globalThis.openai,
+      openExternal,
+      sendFollowUpMessage,
+      theme,
+      visualizationStyleVariables: {},
+      visualizationTheme: theme,
+    };
+    globalThis.dispatchEvent(
+      new CustomEvent(&quot;openai:set_globals&quot;, {
+        detail: { globals: globalThis.openai },
+      }),
+    );
+  };
+  const sendHeight = () =&gt; {
+    postToHost(&quot;height&quot;, {
+      height: Math.ceil(
+        Math.max(
+          document.body.scrollHeight,
+          document.body.getBoundingClientRect().height,
+        ),
+      ),
+    });
+  };
+
+  globalThis.addEventListener(
+    &quot;message&quot;,
+    (event) =&gt; {
+      const data = apply(getMessageData, event, []);
+      const ports = apply(getMessagePorts, event, []);
+      const source = apply(getMessageSource, event, []);
+      if (
+        source !== parentWindow ||
+        typeof data !== &quot;object&quot; ||
+        data == null ||
+        data.type !== &quot;codex-visualization-initialize&quot; ||
+        !isArray(ports) ||
+        ports.length !== 1
+      ) {
+        return;
+      }
+      apply(stopMessagePropagation, event, []);
+      const nextHostPort = ports[0];
+      try {
+        apply(addHostMessageListener, nextHostPort, [
+          &quot;message&quot;,
+          (event) =&gt; {
+            const data = apply(getMessageData, event, []);
+            if (typeof data === &quot;object&quot; &amp;&amp; data?.type === &quot;measure&quot;) {
+              sendHeight();
+            }
+          },
+        ]);
+        apply(startHostPort, nextHostPort, []);
+      } catch {
+        return;
+      }
+      hostPort = nextHostPort;
+      sendHeight();
+    },
+    { capture: true },
+  );
+  document.currentScript?.remove();
+  mediaQuery.addEventListener(&quot;change&quot;, syncTheme);
+  globalThis.addEventListener(&quot;click&quot;, (event) =&gt; {
+    if (event.defaultPrevented) {
+      return;
+    }
+    let element = null;
+    if (event.target instanceof globalThis.Element) {
+      element = event.target;
+    } else if (event.target instanceof globalThis.Node) {
+      element = event.target.parentElement;
+    }
+    const link = element?.closest(&quot;a[href]&quot;);
+    const href = link?.getAttribute(&quot;href&quot;);
+    if (href == null) {
+      return;
+    }
+    if (href.startsWith(&quot;#&quot;)) {
+      let id;
+      try {
+        id = decodeURIComponent(href.slice(1));
+      } catch {
+        return;
+      }
+      const target = id.length === 0 ? root : document.getElementById(id);
+      if (
+        target == null ||
+        globalThis.navigator.userActivation?.isActive !== true
+      ) {
+        return;
+      }
+      event.preventDefault();
+      postToHost(&quot;scroll-to&quot;, {
+        top: target.getBoundingClientRect().top + globalThis.scrollY,
+      });
+      return;
+    }
+    event.preventDefault();
+    openExternal({ href });
+  });
+  new ResizeObserver(sendHeight).observe(document.body);
+  syncTheme();
+})();
+&lt;/script&gt;
+&lt;style&gt;:root {
+  color-scheme: light dark;
+  background-color: var(--background) !important;
+
+  /* Agent-facing contract; keep in sync with SKILL.md. */
+  --background: light-dark(rgb(255 255 255), rgb(24 24 24));
+  --foreground: light-dark(rgb(26 28 31), rgb(255 255 255));
+  --card: color-mix(in oklab, var(--foreground) 5%, transparent);
+  --card-foreground: var(--foreground);
+  --popover: light-dark(rgb(255 255 255), rgb(45 45 45));
+  --popover-foreground: var(--foreground);
+  --primary: light-dark(rgb(51 156 255), rgb(131 195 255));
+  --primary-foreground: light-dark(rgb(255 255 255), rgb(13 13 13));
+  --secondary: light-dark(rgb(255 255 255 / 96%), rgb(54 54 54 / 96%));
+  --secondary-foreground: var(--foreground);
+  --muted: color-mix(in srgb, var(--foreground) 10%, transparent);
+  --muted-foreground: light-dark(
+    rgb(26 28 31 / 49.4%),
+    rgb(255 255 255 / 49.8%)
+  );
+  --accent: light-dark(rgb(229 242 255), rgb(13 39 63));
+  --accent-foreground: var(--primary);
+  --destructive: light-dark(rgb(226 85 7), rgb(255 133 73));
+  --border: light-dark(rgb(26 28 31 / 8%), rgb(255 255 255 / 8.2%));
+  --input: light-dark(
+    rgb(26 28 31 / 11.8%),
+    color-mix(in oklab, rgb(0 0 0) 10%, transparent)
+  );
+  --ring: light-dark(rgb(51 156 255), rgb(131 195 255 / 76%));
+  --font-size-base: 14px;
+  --viz-series-1: var(--primary);
+  --viz-series-2: light-dark(rgb(243 136 59), rgb(245 154 86));
+  --viz-series-3: light-dark(rgb(93 201 119), rgb(116 213 139));
+  --viz-series-4: light-dark(rgb(235 119 177), rgb(240 143 192));
+  --viz-series-5: light-dark(rgb(155 121 236), rgb(170 145 239));
+  --viz-series-6: light-dark(rgb(58 185 177), rgb(90 203 194));
+
+  /* Internal implementation variables; not part of the agent contract. */
+  --font-sans: -apple-system, system-ui, &quot;Segoe UI&quot;, sans-serif;
+  --font-mono:
+    ui-monospace, SFMono-Regular, &quot;SF Mono&quot;, Menlo, Consolas, &quot;Liberation Mono&quot;,
+    monospace;
+  --font-size-normal: max(11px, var(--font-size-base));
+  --font-size-tooltip: calc(var(--font-size-base) - 1px);
+  --font-size-small: max(11px, calc(var(--font-size-base) - 2px));
+  --font-size-h1: calc(var(--font-size-normal) * 1.7142857143);
+  --font-size-h2: calc(var(--font-size-normal) * 1.4285714286);
+  --font-size-h3: calc(var(--font-size-normal) * 1.2857142857);
+  --font-weight-normal: 430;
+  --font-weight-medium: 500;
+  --line-height-normal: calc(var(--font-size-normal) * 1.5);
+  --line-height-tooltip: calc(var(--font-size-tooltip) * 1.4285714286);
+  --line-height-small: calc(var(--font-size-small) + 4px);
+  --radius: 12.5px;
+  --radius-sm: calc(var(--radius) * 0.6);
+  --radius-md: calc(var(--radius) * 0.8);
+  --radius-lg: var(--radius);
+  --radius-2xl: calc(var(--radius) * 1.6);
+  --radius-full: 9999px;
+  --shadow-sm: 0 1px 2px -1px rgb(0 0 0 / 8%);
+  --checkmark-image: url(&quot;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 17 17'%3E%3Cpath d='M12.8961 3.64101C13.1297 3.41418 13.4984 3.37523 13.7779 3.56581C14.0571 3.75635 14.1554 4.11331 14.0299 4.41347L13.9615 4.53847L7.71151 13.7045C7.59411 13.8767 7.4063 13.9877 7.19881 14.0072C6.99136 14.0267 6.78564 13.9533 6.63826 13.806L2.88826 10.056L2.79842 9.9457C2.6192 9.67407 2.64927 9.30496 2.88826 9.06581C3.12738 8.82669 3.49647 8.79676 3.76815 8.97597L3.8785 9.06581L7.03084 12.2182L12.8053 3.74941L12.8961 3.64101Z'/%3E%3C/svg%3E&quot;);
+
+  /* Legacy aliases; not part of the current agent contract. */
+  --viz-bg: transparent;
+  --viz-panel: var(--card);
+  --viz-border: var(--border);
+  --viz-text: var(--foreground);
+  --viz-muted: var(--muted-foreground);
+  --viz-accent: var(--primary);
+  --viz-accent-text: var(--primary-foreground);
+  --viz-accent-bg: var(--accent);
+  --viz-font-size: var(--font-size-base);
+  --viz-warning: var(--destructive);
+  --color-background-primary: var(--background);
+  --color-text-primary: var(--foreground);
+  --color-border-secondary: var(--border);
+}
+
+:root[data-theme=&quot;light&quot;] {
+  color-scheme: light;
+}
+
+:root[data-theme=&quot;dark&quot;] {
+  color-scheme: dark;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html &gt; body {
+  margin: 0;
+  padding: 5px;
+  color: var(--foreground);
+  background: transparent !important;
+  font-family: var(--font-sans);
+  font-size: var(--font-size-normal);
+  font-weight: var(--font-weight-normal);
+  line-height: var(--line-height-normal);
+}
+
+a {
+  color: color-mix(in srgb, var(--viz-accent) 80%, var(--viz-text) 20%);
+  cursor: pointer;
+  font-weight: var(--viz-font-weight-medium);
+  text-decoration: none;
+  text-underline-offset: 2px;
+}
+
+a:is(:hover, :focus-visible) {
+  text-decoration-line: underline;
+  text-decoration-style: dashed;
+  text-decoration-thickness: 0.5px;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  margin-block: 0;
+}
+
+h1 {
+  font-size: var(--font-size-h1);
+  font-weight: var(--font-weight-medium);
+  line-height: 1.25;
+}
+
+h2 {
+  font-size: var(--font-size-h2);
+  font-weight: var(--font-weight-medium);
+  line-height: 1.25;
+}
+
+h3,
+h4,
+h5,
+h6 {
+  font-size: var(--font-size-h3);
+  font-weight: var(--font-weight-medium);
+  line-height: 1.3;
+}
+
+b,
+strong,
+th {
+  font-weight: var(--font-weight-medium);
+}
+
+code:not(pre code) {
+  display: inline;
+  padding: 1px 6px;
+  border-radius: var(--radius-sm);
+  corner-shape: superellipse(1.5);
+  background: var(--muted);
+  font-family: var(--font-mono);
+  font-size: 0.92em;
+  overflow-wrap: anywhere;
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
+  word-break: break-word;
+}
+
+#widget {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  width: 100%;
+  padding: 0;
+  background: transparent !important;
+}
+
+.card {
+  min-width: 0;
+  padding: 12px;
+  overflow: hidden;
+  overflow-wrap: break-word;
+  border-radius: var(--radius-2xl);
+  corner-shape: superellipse(1.5);
+  color: var(--card-foreground);
+  background: var(--card);
+}
+
+#widget &gt; :not(.card) {
+  width: 100% !important;
+  max-width: none !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  background: transparent !important;
+  box-shadow: none !important;
+}
+
+.tooltip {
+  position: fixed;
+  z-index: 50;
+  top: 0;
+  left: 0;
+  width: max-content;
+  max-width: min(
+    20rem,
+    var(--tooltip-available-width, calc(100vw - 10px)),
+    calc(100vw - 10px)
+  );
+  max-height: min(
+    var(--tooltip-available-height, calc(100vh - 10px)),
+    calc(100vh - 10px)
+  );
+  padding: 4px 8px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  corner-shape: superellipse(1.5);
+  color: var(--popover-foreground);
+  background: var(--popover);
+  box-shadow: none;
+  font-size: var(--font-size-tooltip);
+  line-height: var(--line-height-tooltip);
+  overflow-wrap: break-word;
+  white-space: normal;
+  pointer-events: none;
+  user-select: none;
+}
+
+.viz-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(max(180px, 24%), 1fr));
+  gap: 10px;
+}
+
+.viz-stat {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.viz-stat-value {
+  font-size: var(--font-size-h2);
+  font-weight: var(--font-weight-medium);
+  line-height: 1.25;
+}
+
+.viz-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+}
+
+.viz-badge {
+  padding: 3px 8px;
+  border-radius: var(--radius-full);
+  color: var(--accent-foreground);
+  background: var(--accent);
+  font-weight: var(--font-weight-medium);
+}
+
+small,
+.text-small,
+.viz-badge {
+  font-size: var(--font-size-small);
+  line-height: var(--line-height-small);
+}
+
+.text-muted {
+  color: var(--muted-foreground);
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.viz-controls {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+}
+
+.viz-controls &gt; .form-label {
+  display: grid;
+  min-width: min(100%, 260px);
+  flex: 1 1 280px;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: baseline;
+  gap: 2px 12px;
+  margin-bottom: 0;
+}
+
+.viz-controls &gt; .form-label &gt; :is(.form-control, .form-range, .form-select) {
+  grid-column: 1 / -1;
+}
+
+.btn,
+.form-check-input,
+.form-control,
+.form-range,
+.form-select {
+  font: inherit;
+}
+
+.btn {
+  appearance: button;
+  display: inline-flex;
+  inline-size: fit-content;
+  max-inline-size: 100%;
+  min-height: 28px;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  margin: 0;
+  padding: 0 8px;
+  -webkit-app-region: no-drag;
+  border: 1px solid var(--input);
+  border-radius: var(--radius-lg);
+  corner-shape: superellipse(1.5);
+  color: var(--secondary-foreground);
+  background: var(--secondary);
+  cursor: var(--cursor-interaction, pointer);
+  text-align: center;
+  text-decoration: none;
+  white-space: nowrap;
+  user-select: none;
+  -webkit-font-smoothing: antialiased;
+}
+
+.btn:is(.btn-block, .viz-tile) {
+  inline-size: 100%;
+}
+
+.btn.viz-tile {
+  min-width: 0;
+  overflow-wrap: anywhere;
+  white-space: normal;
+}
+
+a.btn {
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.btn:not(:disabled):hover {
+  background: color-mix(in srgb, var(--foreground) 6%, var(--secondary));
+}
+
+.btn-primary {
+  border-color: transparent;
+  color: var(--primary-foreground);
+  background: var(--foreground);
+  background-clip: padding-box;
+}
+
+.btn-primary .text-muted {
+  color: color-mix(in srgb, var(--primary-foreground) 50%, transparent);
+}
+
+.btn-primary:not(:disabled):hover {
+  background: color-mix(in srgb, var(--foreground) 80%, transparent);
+  background-clip: padding-box;
+}
+
+.btn-ghost {
+  border-color: transparent;
+  color: var(--muted-foreground);
+  background: transparent;
+}
+
+.btn-ghost:not(:disabled):hover {
+  color: var(--foreground);
+  background: color-mix(in srgb, var(--foreground) 6%, var(--secondary));
+}
+
+.btn:disabled {
+  cursor: not-allowed;
+  opacity: 0.4;
+}
+
+[data-lucide] {
+  stroke-width: 1.6;
+}
+
+.form-label {
+  display: block;
+  margin-bottom: 6px;
+  color: var(--foreground);
+}
+
+.form-control {
+  display: block;
+  width: 100%;
+  min-height: 28px;
+  padding: 0 8px;
+  outline: none;
+  border: 1px solid var(--input);
+  border-radius: var(--radius-lg);
+  corner-shape: superellipse(1.5);
+  color: var(--foreground);
+  background: var(--secondary);
+}
+
+.form-control::placeholder {
+  color: var(--muted-foreground);
+}
+
+.form-control[type=&quot;file&quot;] {
+  padding: 0;
+  overflow: hidden;
+  cursor: var(--cursor-interaction, pointer);
+}
+
+.form-control[type=&quot;file&quot;]::file-selector-button {
+  min-height: 26px;
+  margin-right: 8px;
+  padding: 0 8px;
+  border: 0;
+  border-right: 1px solid var(--input);
+  color: var(--secondary-foreground);
+  background: var(--secondary);
+  cursor: inherit;
+  font: inherit;
+}
+
+.form-control[type=&quot;file&quot;]:not(:disabled):hover::file-selector-button {
+  background: color-mix(in srgb, var(--foreground) 6%, var(--secondary));
+}
+
+.form-control-color[type=&quot;color&quot;] {
+  width: 40px;
+  height: 28px;
+  padding: 3px;
+  cursor: var(--cursor-interaction, pointer);
+}
+
+.form-control-color[type=&quot;color&quot;]::-webkit-color-swatch-wrapper {
+  padding: 0;
+}
+
+.form-control-color[type=&quot;color&quot;]::-webkit-color-swatch {
+  border: 0;
+  border-radius: calc(var(--radius-lg) - 4px);
+  corner-shape: superellipse(1.5);
+}
+
+textarea.form-control {
+  height: auto;
+  min-height: 72px;
+  padding: 8px 10px;
+  resize: vertical;
+}
+
+.form-control:focus-visible {
+  border-color: var(--ring);
+  box-shadow: inset 0 0 0 1px var(--ring);
+}
+
+.form-control:disabled,
+.form-select:disabled {
+  cursor: not-allowed;
+  opacity: 0.4;
+}
+
+.form-select {
+  appearance: none;
+  display: block;
+  width: 100%;
+  min-height: 28px;
+  margin: 0;
+  padding: 0 32px 0 8px;
+  outline: none;
+  border: 1px solid var(--input);
+  border-radius: var(--radius-lg);
+  corner-shape: superellipse(1.5);
+  color: var(--foreground);
+  background-color: var(--secondary);
+  background-image:
+    linear-gradient(45deg, transparent 50%, var(--muted-foreground) 50%),
+    linear-gradient(135deg, var(--muted-foreground) 50%, transparent 50%);
+  background-position:
+    calc(100% - 14px) 50%,
+    calc(100% - 10px) 50%;
+  background-repeat: no-repeat;
+  background-size: 4px 4px;
+  cursor: var(--cursor-interaction, default);
+}
+
+.form-select:not(:disabled):hover {
+  background-color: color-mix(in srgb, var(--foreground) 6%, var(--secondary));
+}
+
+.form-select:focus-visible {
+  border-color: var(--ring);
+  box-shadow: inset 0 0 0 1px var(--ring);
+}
+
+.form-check {
+  display: flex;
+  min-height: 20px;
+  align-items: center;
+  gap: 6px;
+}
+
+.form-check-input {
+  appearance: none;
+  width: 14px;
+  height: 14px;
+  flex: 0 0 auto;
+  margin: 0;
+  border: 1px solid var(--input);
+  color: var(--primary-foreground);
+  background-color: transparent;
+  cursor: var(--cursor-interaction, default);
+  transition:
+    background-color 150ms,
+    border-color 150ms,
+    box-shadow 150ms;
+}
+
+.form-check:not(.form-switch) .form-check-input[type=&quot;checkbox&quot;] {
+  border-color: var(--input);
+  border-radius: var(--radius-sm);
+  corner-shape: superellipse(1.5);
+  background-color: var(--secondary);
+  box-shadow: var(--shadow-sm);
+}
+
+.form-check:not(.form-switch)
+  .form-check-input:not(:disabled):not(:checked):hover {
+  background-color: var(--card);
+}
+
+.form-check:not(.form-switch) .form-check-input[type=&quot;checkbox&quot;]:checked {
+  border-color: var(--primary);
+  background-color: var(--primary);
+}
+
+.form-check:not(.form-switch)
+  .form-check-input[type=&quot;checkbox&quot;]:checked::before {
+  display: block;
+  width: 100%;
+  height: 100%;
+  background: var(--primary-foreground);
+  content: &quot;&quot;;
+  mask: var(--checkmark-image) center / 12px 12px no-repeat;
+}
+
+.form-check-input[type=&quot;radio&quot;] {
+  width: 14px;
+  height: 14px;
+  border-radius: var(--radius-full);
+}
+
+.form-check-input[type=&quot;radio&quot;]:checked {
+  border: 2px solid var(--primary);
+  background:
+    radial-gradient(circle, var(--primary-foreground) 0 2.5px, transparent 3px),
+    var(--primary);
+}
+
+.form-check:not(.form-switch) .form-check-input:focus-visible {
+  outline: 2px solid var(--ring);
+  outline-offset: 2px;
+}
+
+.form-check:not(.form-switch) .form-check-input:disabled {
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+.form-check:not(.form-switch) .form-check-input:disabled + .form-check-label {
+  cursor: not-allowed;
+}
+
+.form-switch .form-check-input:disabled,
+.form-switch .form-check-input:disabled + .form-check-label {
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+.form-check-label {
+  color: var(--foreground);
+  cursor: var(--cursor-interaction, default);
+}
+
+.form-switch .form-check-input {
+  position: relative;
+  width: 32px;
+  height: 20px;
+  border: 0;
+  border-radius: var(--radius-full);
+  background: var(--muted);
+  box-shadow: none;
+  transition: background-color 200ms cubic-bezier(0, 0, 0.2, 1);
+}
+
+.form-switch .form-check-input::before {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 16px;
+  height: 16px;
+  box-sizing: border-box;
+  border: 1px solid light-dark(var(--primary-foreground), var(--foreground));
+  border-radius: var(--radius-full);
+  background: light-dark(var(--primary-foreground), var(--foreground));
+  box-shadow: var(--shadow-sm);
+  content: &quot;&quot;;
+  transform: translate(2px, -50%);
+  transition: transform 200ms cubic-bezier(0, 0, 0.2, 1);
+}
+
+.form-switch .form-check-input:checked {
+  background: var(--primary);
+}
+
+.form-switch .form-check-input:checked::before {
+  transform: translate(14px, -50%);
+}
+
+.form-switch .form-check-input:focus-visible {
+  box-shadow: 0 0 0 2px var(--ring);
+}
+
+.form-range {
+  appearance: none;
+  display: block;
+  width: 100%;
+  height: 28px;
+  flex: 1;
+  margin: 0;
+  padding: 0;
+  outline: none;
+  border: 0;
+  accent-color: var(--primary);
+  background: linear-gradient(
+      color-mix(in srgb, var(--foreground) 7%, transparent),
+      color-mix(in srgb, var(--foreground) 7%, transparent)
+    )
+    center / 100% 2px no-repeat;
+}
+
+.form-range::-webkit-slider-runnable-track {
+  height: 28px;
+  background: transparent;
+}
+
+.form-range::-webkit-slider-thumb {
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  margin-top: 4px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-full);
+  background: light-dark(var(--primary-foreground), var(--foreground));
+}
+
+.form-range:focus-visible::-webkit-slider-thumb {
+  border-color: var(--ring);
+  box-shadow: inset 0 0 0 1px var(--ring);
+}
+
+.form-range::-moz-range-track {
+  height: 28px;
+  background: transparent;
+}
+
+.form-range::-moz-range-thumb {
+  width: 20px;
+  height: 20px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-full);
+  background: light-dark(var(--primary-foreground), var(--foreground));
+}
+
+.form-range:focus-visible::-moz-range-thumb {
+  border-color: var(--ring);
+  box-shadow: inset 0 0 0 1px var(--ring);
+}
+
+.form-range:disabled {
+  cursor: not-allowed;
+  opacity: 0.4;
+}
+
+.btn:not(.btn-primary, .viz-tile):is(
+    [aria-pressed=&quot;true&quot;],
+    [aria-selected=&quot;true&quot;],
+    .is-selected
+  ) {
+  border-color: var(--primary);
+  color: var(--primary-foreground);
+  background: var(--primary);
+}
+
+.btn.viz-tile:is([aria-pressed=&quot;true&quot;], [aria-selected=&quot;true&quot;], .is-selected) {
+  border-color: var(--primary);
+  box-shadow: inset 0 0 0 1px var(--primary);
+}
+
+.btn:focus-visible {
+  outline: 2px solid var(--ring);
+  outline-offset: 2px;
+}
+
+svg {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+#widget &gt; svg {
+  width: 100%;
+}
+
+.text-warning,
+.text-destructive {
+  color: var(--destructive);
+}
+
+html&gt;body{padding:0}&lt;/style&gt;
+&lt;script&gt;
+(() =&gt; {
+  const root = document.documentElement;
+  const initialGlobals =
+    globalThis.__codexVisualizationInitialGlobals ?? globalThis.openai;
+  delete globalThis.__codexVisualizationInitialGlobals;
+  let appliedProperties = [];
+
+  const applyHostStyleVariables = (styleVariables) =&gt; {
+    if (styleVariables == null || typeof styleVariables !== &quot;object&quot;) {
+      return;
+    }
+    for (const property of appliedProperties) {
+      root.style.removeProperty(property);
+    }
+    appliedProperties = [];
+    for (const [property, value] of Object.entries(styleVariables)) {
+      if (property.startsWith(&quot;--&quot;) &amp;&amp; typeof value === &quot;string&quot;) {
+        root.style.setProperty(property, value);
+        appliedProperties.push(property);
+      }
+    }
+  };
+
+  const syncHostStyles = (globals) =&gt; {
+    applyHostStyleVariables(globals?.visualizationStyleVariables);
+  };
+
+  syncHostStyles(initialGlobals);
+  globalThis.addEventListener(&quot;openai:set_globals&quot;, (event) =&gt; {
+    syncHostStyles(event.detail?.globals);
+  });
+})();
+&lt;/script&gt;
+
+&lt;div id=&quot;marlin-teaching-3d&quot;&gt;
+  &lt;div class=&quot;viz-controls&quot; aria-label=&quot;教学模型控制&quot;&gt;
+    &lt;label class=&quot;form-label&quot; for=&quot;mt3d-select&quot;&gt;教学部件&lt;/label&gt;
+    &lt;select class=&quot;form-select&quot; id=&quot;mt3d-select&quot;&gt;&lt;/select&gt;
+    &lt;label class=&quot;form-label&quot; for=&quot;mt3d-view&quot;&gt;工程视图&lt;/label&gt;
+    &lt;select class=&quot;form-select&quot; id=&quot;mt3d-view&quot;&gt;
+      &lt;option value=&quot;iso&quot;&gt;等轴测&lt;/option&gt;
+      &lt;option value=&quot;side&quot;&gt;右视正投影&lt;/option&gt;
+      &lt;option value=&quot;front&quot;&gt;前视正投影&lt;/option&gt;
+      &lt;option value=&quot;top&quot;&gt;俯视正投影&lt;/option&gt;
+    &lt;/select&gt;
+    &lt;button type=&quot;button&quot; class=&quot;btn&quot; id=&quot;mt3d-reset&quot;&gt;
+      &lt;i data-lucide=&quot;rotate-ccw&quot; aria-hidden=&quot;true&quot;&gt;&lt;/i&gt;
+      复位
+    &lt;/button&gt;
+    &lt;button type=&quot;button&quot; class=&quot;btn&quot; id=&quot;mt3d-explode&quot; aria-pressed=&quot;false&quot;&gt;
+      &lt;i data-lucide=&quot;move-3d&quot; aria-hidden=&quot;true&quot;&gt;&lt;/i&gt;
+      分解视图
+    &lt;/button&gt;
+    &lt;button type=&quot;button&quot; class=&quot;btn&quot; id=&quot;mt3d-drive&quot; aria-pressed=&quot;false&quot;&gt;
+      &lt;i data-lucide=&quot;play&quot; aria-hidden=&quot;true&quot;&gt;&lt;/i&gt;
+      传动演示
+    &lt;/button&gt;
+    &lt;button type=&quot;button&quot; class=&quot;btn&quot; id=&quot;mt3d-loads&quot; aria-pressed=&quot;false&quot;&gt;
+      &lt;i data-lucide=&quot;activity&quot; aria-hidden=&quot;true&quot;&gt;&lt;/i&gt;
+      载荷示意
+    &lt;/button&gt;
+    &lt;label class=&quot;form-check form-switch&quot;&gt;
+      &lt;input class=&quot;form-check-input&quot; type=&quot;checkbox&quot; id=&quot;mt3d-labels&quot;&gt;
+      &lt;span class=&quot;form-check-label&quot;&gt;部件标注&lt;/span&gt;
+    &lt;/label&gt;
+    &lt;label class=&quot;form-check form-switch&quot;&gt;
+      &lt;input class=&quot;form-check-input&quot; type=&quot;checkbox&quot; id=&quot;mt3d-auto&quot;&gt;
+      &lt;span class=&quot;form-check-label&quot;&gt;自动旋转&lt;/span&gt;
+    &lt;/label&gt;
+    &lt;label class=&quot;form-check form-switch&quot;&gt;
+      &lt;input class=&quot;form-check-input&quot; type=&quot;checkbox&quot; id=&quot;mt3d-wire&quot;&gt;
+      &lt;span class=&quot;form-check-label&quot;&gt;线框模式&lt;/span&gt;
+    &lt;/label&gt;
+  &lt;/div&gt;
+
+  &lt;div class=&quot;mt3d-layout&quot;&gt;
+    &lt;div class=&quot;mt3d-stage&quot;&gt;
+      &lt;canvas id=&quot;mt3d-canvas&quot; role=&quot;img&quot; aria-label=&quot;2023 款 Trek Marlin 6 机械专业教学三维模型。支持等轴测和正投影视图、线框模式、尺寸基准、载荷示意、分解查看与传动演示。&quot;&gt;&lt;/canvas&gt;
+      &lt;div class=&quot;mt3d-label-layer&quot; id=&quot;mt3d-label-layer&quot;&gt;&lt;/div&gt;
+      &lt;div class=&quot;mt3d-axis text-small&quot; aria-label=&quot;三维坐标定义&quot;&gt;
+        &lt;span&gt;&lt;i class=&quot;mt3d-axis-x&quot; aria-hidden=&quot;true&quot;&gt;&lt;/i&gt;X 车架纵向&lt;/span&gt;
+        &lt;span&gt;&lt;i class=&quot;mt3d-axis-y&quot; aria-hidden=&quot;true&quot;&gt;&lt;/i&gt;Y 垂直方向&lt;/span&gt;
+        &lt;span&gt;&lt;i class=&quot;mt3d-axis-z&quot; aria-hidden=&quot;true&quot;&gt;&lt;/i&gt;Z 横向&lt;/span&gt;
+      &lt;/div&gt;
+      &lt;div class=&quot;mt3d-hint text-small text-muted&quot;&gt;拖动旋转 · 滚轮缩放 · 点击部件&lt;/div&gt;
+    &lt;/div&gt;
+
+    &lt;aside class=&quot;card&quot; aria-live=&quot;polite&quot;&gt;
+      &lt;div class=&quot;mt3d-detail&quot;&gt;
+        &lt;div class=&quot;viz-row&quot;&gt;
+          &lt;span class=&quot;viz-badge&quot; id=&quot;mt3d-system&quot;&gt;整车结构&lt;/span&gt;
+          &lt;code id=&quot;mt3d-spec&quot;&gt;M 码示意 · 29 英寸&lt;/code&gt;
+        &lt;/div&gt;
+        &lt;h3 id=&quot;mt3d-title&quot;&gt;Marlin 6 教学模型&lt;/h3&gt;
+        &lt;dl&gt;
+          &lt;div&gt;
+            &lt;dt class=&quot;text-small text-muted&quot;&gt;机械功能&lt;/dt&gt;
+            &lt;dd id=&quot;mt3d-function&quot;&gt;硬尾铝合金车架、前避震、越野轮组、传动与液压碟刹共同构成基础山地车系统。&lt;/dd&gt;
+          &lt;/div&gt;
+          &lt;div&gt;
+            &lt;dt class=&quot;text-small text-muted&quot;&gt;课程知识点&lt;/dt&gt;
+            &lt;dd id=&quot;mt3d-teach&quot;&gt;从车架承载、轮组滚动、传动输入和制动减速四条关系讲解整车工作过程。&lt;/dd&gt;
+          &lt;/div&gt;
+          &lt;div&gt;
+            &lt;dt class=&quot;text-small text-muted&quot;&gt;失效与检修&lt;/dt&gt;
+            &lt;dd id=&quot;mt3d-check&quot;&gt;上课演示前检查轮轴、把立、曲柄、制动与座管是否紧固；实际维修须使用原厂扭矩数据。&lt;/dd&gt;
+          &lt;/div&gt;
+        &lt;/dl&gt;
+      &lt;/div&gt;
+    &lt;/aside&gt;
+  &lt;/div&gt;
+
+  &lt;div class=&quot;mt3d-note text-small text-muted&quot;&gt;教学示意模型，不代替尺寸测量或维修图纸；不同销售地区、车架尺码和生产批次的零件配置可能不同。&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;style&gt;
+  #marlin-teaching-3d {
+    width: 100%;
+    color: var(--foreground);
+  }
+  #marlin-teaching-3d .viz-controls {
+    margin-bottom: 10px;
+  }
+  #marlin-teaching-3d .mt3d-layout {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(220px, 0.38fr);
+    gap: 12px;
+    align-items: stretch;
+  }
+  #marlin-teaching-3d .mt3d-stage {
+    position: relative;
+    min-width: 0;
+    height: clamp(400px, 64vw, 560px);
+  }
+  #marlin-teaching-3d canvas {
+    display: block;
+    width: 100%;
+    height: 100%;
+    cursor: grab;
+    touch-action: none;
+  }
+  #marlin-teaching-3d canvas:active {
+    cursor: grabbing;
+  }
+  #marlin-teaching-3d .mt3d-label-layer {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+  }
+  #marlin-teaching-3d .mt3d-label {
+    position: absolute;
+    transform: translate(-50%, -50%);
+    pointer-events: auto;
+    white-space: nowrap;
+  }
+  #marlin-teaching-3d .mt3d-label[hidden] {
+    display: none;
+  }
+  #marlin-teaching-3d .mt3d-engineering-label {
+    position: absolute;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+    white-space: nowrap;
+  }
+  #marlin-teaching-3d .mt3d-axis {
+    position: absolute;
+    left: 8px;
+    bottom: 7px;
+    display: grid;
+    gap: 3px;
+    pointer-events: none;
+  }
+  #marlin-teaching-3d .mt3d-axis span {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+  }
+  #marlin-teaching-3d .mt3d-axis i {
+    width: 14px;
+    height: 2px;
+    display: inline-block;
+  }
+  #marlin-teaching-3d .mt3d-axis-x { background: var(--viz-series-1); }
+  #marlin-teaching-3d .mt3d-axis-y { background: var(--viz-series-2); }
+  #marlin-teaching-3d .mt3d-axis-z { background: var(--viz-series-3); }
+  #marlin-teaching-3d .mt3d-hint {
+    position: absolute;
+    left: 50%;
+    bottom: 6px;
+    transform: translateX(-50%);
+    white-space: nowrap;
+    pointer-events: none;
+  }
+  #marlin-teaching-3d .mt3d-detail {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-width: 0;
+  }
+  #marlin-teaching-3d .mt3d-detail dl {
+    display: grid;
+    gap: 14px;
+    margin: 8px 0 0;
+  }
+  #marlin-teaching-3d .mt3d-detail dd {
+    margin: 3px 0 0;
+  }
+  #marlin-teaching-3d .mt3d-note {
+    margin-top: 8px;
+    text-align: center;
+  }
+  @media (max-width: 680px) {
+    #marlin-teaching-3d .mt3d-layout {
+      grid-template-columns: 1fr;
+    }
+    #marlin-teaching-3d .mt3d-stage {
+      height: clamp(360px, 98vw, 500px);
+    }
+  }
+&lt;/style&gt;
+
+&lt;script type=&quot;module&quot;&gt;
+  import * as THREE from 'https://esm.sh/three@0.166.1';
+  import { OrbitControls } from 'https://esm.sh/three@0.166.1/examples/jsm/controls/OrbitControls.js';
+
+  const root = document.getElementById('marlin-teaching-3d');
+  const canvas = document.getElementById('mt3d-canvas');
+  const stage = root.querySelector('.mt3d-stage');
+  const select = document.getElementById('mt3d-select');
+  const viewSelect = document.getElementById('mt3d-view');
+  const systemText = document.getElementById('mt3d-system');
+  const specText = document.getElementById('mt3d-spec');
+  const titleText = document.getElementById('mt3d-title');
+  const functionText = document.getElementById('mt3d-function');
+  const teachText = document.getElementById('mt3d-teach');
+  const checkText = document.getElementById('mt3d-check');
+  const resetButton = document.getElementById('mt3d-reset');
+  const explodeButton = document.getElementById('mt3d-explode');
+  const driveButton = document.getElementById('mt3d-drive');
+  const loadsButton = document.getElementById('mt3d-loads');
+  const labelsCheckbox = document.getElementById('mt3d-labels');
+  const autoCheckbox = document.getElementById('mt3d-auto');
+  const wireCheckbox = document.getElementById('mt3d-wire');
+  const labelLayer = document.getElementById('mt3d-label-layer');
+
+  const resolveColor = (variable) =&gt; {
+    const probe = document.createElement('span');
+    probe.style.color = `var(${variable})`;
+    probe.style.display = 'none';
+    root.appendChild(probe);
+    const cssColor = getComputedStyle(probe).color;
+    probe.remove();
+    const sampler = document.createElement('canvas');
+    sampler.width = 1;
+    sampler.height = 1;
+    const context = sampler.getContext('2d', { willReadFrequently: true });
+    context.fillStyle = cssColor || 'rgb(128,128,128)';
+    context.fillRect(0, 0, 1, 1);
+    const [r, g, b] = context.getImageData(0, 0, 1, 1).data;
+    return new THREE.Color(r / 255, g / 255, b / 255);
+  };
+
+  const colors = {
+    frame: resolveColor('--viz-series-1'),
+    accent: resolveColor('--viz-series-2'),
+    secondary: resolveColor('--viz-series-3'),
+    dark: resolveColor('--foreground'),
+    muted: resolveColor('--muted-foreground'),
+    metal: resolveColor('--border'),
+    light: resolveColor('--card')
+  };
+
+  const info = {
+    overview: {
+      system: '整车结构', title: 'Marlin 6 教学模型', spec: 'M 码示意 · 29 英寸',
+      function: '硬尾铝合金车架、前避震、越野轮组、传动与液压碟刹共同构成基础山地车系统。',
+      teach: '从车架承载、轮组滚动、传动输入和制动减速四条关系讲解整车工作过程。',
+      check: '上课演示前检查轮轴、把立、曲柄、制动与座管是否紧固；实际维修须使用原厂扭矩数据。'
+    },
+    frame: {
+      system: '承载系统', title: 'Alpha Silver 铝合金硬尾车架', spec: '内走线 · 货架/脚撑安装位',
+      function: '头管、上管、下管、座管与后上叉、后下叉组成主承载结构，将骑手、前叉和轮组载荷连接起来。',
+      teach: '对比前三角与后端三角：前三角负责整体刚度，后端三角确定后轮定位；硬尾车架没有后避震连杆。',
+      check: '观察焊缝、头管、五通、后叉和安装孔周围是否有裂纹、凹陷或异常异响。'
+    },
+    fork: {
+      system: '悬挂系统', title: '前避震前叉', spec: '常规尺码约 100 mm 行程',
+      function: '弹簧与阻尼结构允许前轮沿前叉轴线压缩，减小地面冲击传到车把的幅度。',
+      teach: '讲解行程、预载、回弹和锁死的区别；本模型用银色内管与深色外管表示滑动副。',
+      check: '检查内管划伤、油污、异响、锁死功能和前轴固定；不同尺码的原配行程要单独核验。'
+    },
+    tire: {
+      system: '轮地接触', title: '越野外胎与胎纹', spec: 'M–XXL 最大约 29×2.4 in',
+      function: '外胎承担抓地、缓冲和转向力；胎块在松土与碎石路面提供咬合。',
+      teach: '说明胎压越低并不总是越好：抓地、滚阻、蛇咬和轮圈保护需要平衡。',
+      check: '检查胎压、胎面磨损、侧壁割伤、方向箭头和胎唇是否正确就位。'
+    },
+    rim: {
+      system: '轮组系统', title: '轮圈与辐条', spec: '径向承载 · 交叉编法示意',
+      function: '轮圈保持轮胎形状，辐条通过张力把地面载荷传到花鼓。',
+      teach: '辐条主要受拉而不是受压；张力均匀性影响轮组的横向和径向跳动。',
+      check: '转动车轮观察偏摆，轻触辐条比较张力；检查轮圈撞击痕迹和辐条帽松动。'
+    },
+    hub: {
+      system: '轮组系统', title: '前后花鼓与车轴', spec: '轴承 · 法兰 · 轴端',
+      function: '花鼓轴承允许车轮绕固定车轴低阻旋转，法兰为辐条提供受力连接点。',
+      teach: '区分车轴固定、轴承转动和飞轮棘轮三个功能；后花鼓还承担驱动力传递。',
+      check: '握住轮圈横向晃动检查间隙，空转听轴承噪声，并确认快拆或轴端锁紧。'
+    },
+    crank: {
+      system: '传动输入', title: '曲柄、牙盘与中轴', spec: 'BSA 73 mm 螺纹五通',
+      function: '脚踏力通过曲柄形成扭矩，牙盘带动链条；中轴轴承支撑曲柄旋转。',
+      teach: '用“力 × 力臂”解释曲柄扭矩；牙盘齿数与后飞轮共同决定传动比。',
+      check: '检查曲柄侧向间隙、牙盘齿磨损、中轴异响和脚踏螺纹；左右脚踏螺纹方向不同。'
+    },
+    cassette: {
+      system: '变速系统', title: '后飞轮组', spec: '1×10 教学建模',
+      function: '不同直径的飞轮片改变后轮端传动比，大飞轮便于爬坡，小飞轮提高同踏频下的车速。',
+      teach: '保持牙盘不变，比较链条位于最大与最小飞轮时的机械优势。',
+      check: '检查齿形磨损、锁环松动、飞轮摆动和油泥堆积；不同地区或批次齿比可能不同。'
+    },
+    derailleur: {
+      system: '变速系统', title: '后拨链器与尾钩', spec: '导轮 · 张力臂 · 尾钩',
+      function: '后拨横向移动链条完成换挡，同时通过弹簧张力臂补偿不同飞轮所需链长。',
+      teach: '上导轮负责导向，下导轮维持链条张力；尾钩用于保护车架并提供校正位置。',
+      check: '从车后观察尾钩是否弯曲，检查限位、线张力、导轮磨损与固定螺栓。'
+    },
+    chain: {
+      system: '动力传递', title: '链条与链线', spec: '1X 链线约 49/52 mm 规格范围',
+      function: '链条把牙盘扭矩传到后飞轮，再经棘轮机构驱动车轮。',
+      teach: '解释链节啮合、链条伸长和链线偏斜；交叉链线会增加摩擦与磨损。',
+      check: '用链条检测尺检查磨损，清洁后适量润滑并擦除外表多余油液。'
+    },
+    brakes: {
+      system: '制动系统', title: '液压碟刹与卡钳', spec: '后刹直装 160 mm 示意',
+      function: '刹把推动液压油，卡钳活塞夹紧碟片，把车辆动能转化为热量。',
+      teach: '沿“手指—主缸—油管—活塞—来令片—碟片”讲解力的传递。',
+      check: '检查刹把手感、油管渗漏、来令片厚度和卡钳居中；严禁油污接触摩擦面。'
+    },
+    rotor: {
+      system: '制动系统', title: '制动碟片', spec: '160 mm 课堂示意',
+      function: '碟片随车轮转动，提供卡钳夹持表面并把制动热量散发到空气中。',
+      teach: '碟片直径增大可提高相同夹紧力下的制动力矩，但安装尺寸必须匹配车架与前叉。',
+      check: '旋转观察是否偏摆，检查厚度、裂纹、变色和固定螺栓；避免徒手触摸摩擦面。'
+    },
+    cockpit: {
+      system: '操控系统', title: '车把、把立、握把与控制器', spec: '平把 · 短把立',
+      function: '车把向前叉输入转向力，并承载刹把、指拨与握把。',
+      teach: '车把宽度影响杠杆与稳定性，把立长度影响转向响应和骑姿。',
+      check: '检查把立夹持、把横居中、控制器角度与握把是否转动；按规定顺序和扭矩锁紧。'
+    },
+    headset: {
+      system: '转向连接', title: '头碗与转向轴承', spec: '半隐藏式结构示意',
+      function: '头碗轴承让前叉舵管在车架头管内平顺旋转，同时承受转向与冲击载荷。',
+      teach: '顶盖用于预紧轴承，把立螺栓用于固定舵管；两者作用不能混淆。',
+      check: '捏住前刹前后推车检查松旷，抬起前轮转把检查卡滞或异响。'
+    },
+    saddle: {
+      system: '骑乘支撑', title: '坐垫、座管与座管夹', spec: '座管内径 31.6 mm',
+      function: '座管把骑手载荷传到车架，并通过插入深度调节骑乘高度。',
+      teach: '正确座高影响踩踏效率与膝关节角度；座管必须超过最小插入标记。',
+      check: '检查座管插入深度、座管夹紧力、坐垫导轨和前后倾角；M 码最大插入约 216 mm。'
+    },
+    pedals: {
+      system: '人机输入', title: '平台脚踏', spec: '左右反向螺纹',
+      function: '脚踏把骑手的力传给曲柄，并为鞋底提供支撑和防滑。',
+      teach: '从骑手视角区分左右脚踏：右侧正牙，左侧反牙，拆装方向不同。',
+      check: '检查轴承间隙、踏面破损、防滑钉和曲柄螺纹，安装时避免错牙。'
+    },
+    cables: {
+      system: '线管管理', title: '刹车油管与变速线管', spec: '车架内走线示意',
+      function: '油管传递液压，变速线管约束钢丝拉力；内走线降低外部干涉并改善外观。',
+      teach: '2023 车架可布置后刹油管、后拨线管以及升降座管线管；前拨与内走线升降座管不能同时占用同一路径。',
+      check: '检查折弯、磨损、固定点和车架出口护套；走线不得影响转向或被轮胎夹碰。'
+    }
+  };
+
+  const partOrder = ['overview', 'frame', 'fork', 'tire', 'rim', 'hub', 'crank', 'cassette', 'derailleur', 'chain', 'brakes', 'rotor', 'cockpit', 'headset', 'saddle', 'pedals', 'cables'];
+  partOrder.forEach(key =&gt; {
+    const option = document.createElement('option');
+    option.value = key;
+    option.textContent = info[key].title;
+    select.appendChild(option);
+  });
+
+  const renderer = new THREE.WebGLRenderer({ canvas, antialias: true, alpha: true });
+  renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+  renderer.outputColorSpace = THREE.SRGBColorSpace;
+  renderer.shadowMap.enabled = true;
+  renderer.shadowMap.type = THREE.PCFSoftShadowMap;
+
+  const scene = new THREE.Scene();
+  const perspectiveCamera = new THREE.PerspectiveCamera(36, 1, 0.1, 100);
+  const orthographicCamera = new THREE.OrthographicCamera(-3, 3, 3, -3, 0.1, 100);
+  const initialCamera = new THREE.Vector3(5.2, 3.05, 5.95);
+  const initialTarget = new THREE.Vector3(0.05, 1.36, 0);
+  perspectiveCamera.position.copy(initialCamera);
+  let activeCamera = perspectiveCamera;
+
+  const controls = new OrbitControls(activeCamera, canvas);
+  controls.target.copy(initialTarget);
+  controls.enableDamping = true;
+  controls.dampingFactor = 0.075;
+  controls.minDistance = 4.8;
+  controls.maxDistance = 12;
+  controls.maxPolarAngle = Math.PI * 0.88;
+  controls.autoRotate = false;
+  controls.autoRotateSpeed = 0.55;
+
+  scene.add(new THREE.HemisphereLight(colors.light, colors.muted, 2.8));
+  const keyLight = new THREE.DirectionalLight(colors.light, 5.5);
+  keyLight.position.set(4, 7, 6);
+  keyLight.castShadow = true;
+  keyLight.shadow.mapSize.set(1024, 1024);
+  keyLight.shadow.camera.left = -6;
+  keyLight.shadow.camera.right = 6;
+  keyLight.shadow.camera.top = 6;
+  keyLight.shadow.camera.bottom = -3;
+  scene.add(keyLight);
+  const rimLight = new THREE.DirectionalLight(colors.accent, 2.2);
+  rimLight.position.set(-5, 4, -5);
+  scene.add(rimLight);
+
+  const ground = new THREE.Mesh(
+    new THREE.PlaneGeometry(15, 9),
+    new THREE.ShadowMaterial({ color: colors.muted, opacity: 0.14 })
+  );
+  ground.rotation.x = -Math.PI / 2;
+  ground.position.y = 0.01;
+  ground.receiveShadow = true;
+  scene.add(ground);
+  const grid = new THREE.GridHelper(12, 24, colors.metal, colors.muted);
+  grid.position.y = 0.018;
+  grid.material.transparent = true;
+  grid.material.opacity = 0.2;
+  scene.add(grid);
+
+  const bike = new THREE.Group();
+  bike.rotation.y = -0.1;
+  scene.add(bike);
+
+  const systems = {
+    frame: new THREE.Group(), fork: new THREE.Group(), wheels: new THREE.Group(),
+    drivetrain: new THREE.Group(), brakes: new THREE.Group(), cockpit: new THREE.Group(),
+    saddle: new THREE.Group(), cables: new THREE.Group()
+  };
+  Object.values(systems).forEach(group =&gt; bike.add(group));
+
+  const baseMaterials = {
+    frame: [colors.frame, 0.48, 0.28], dark: [colors.dark, 0.42, 0.42],
+    muted: [colors.muted, 0.24, 0.62], metal: [colors.metal, 0.86, 0.2],
+    accent: [colors.accent, 0.62, 0.27], secondary: [colors.secondary, 0.45, 0.33]
+  };
+  const materialCache = new Map();
+  const getMaterial = (part, base) =&gt; {
+    const key = `${part}:${base}`;
+    if (!materialCache.has(key)) {
+      const [color, metalness, roughness] = baseMaterials[base];
+      materialCache.set(key, new THREE.MeshStandardMaterial({ color, metalness, roughness }));
+    }
+    return materialCache.get(key);
+  };
+
+  const partMeshes = new Map();
+  const addPart = (object, system, part, parent = systems[system]) =&gt; {
+    object.userData.part = part;
+    object.traverse(child =&gt; {
+      if (child.isMesh) {
+        child.userData.part = part;
+        child.castShadow = true;
+        child.receiveShadow = true;
+        if (!partMeshes.has(part)) partMeshes.set(part, []);
+        partMeshes.get(part).push(child);
+      }
+    });
+    parent.add(object);
+    return object;
+  };
+
+  const V = (value) =&gt; value instanceof THREE.Vector3 ? value.clone() : new THREE.Vector3(...value);
+  const tube = (a, b, radius, material, radial = 14) =&gt; {
+    const start = V(a);
+    const end = V(b);
+    const delta = end.clone().sub(start);
+    const mesh = new THREE.Mesh(new THREE.CylinderGeometry(radius, radius, delta.length(), radial), material);
+    mesh.position.copy(start).add(end).multiplyScalar(0.5);
+    mesh.quaternion.setFromUnitVectors(new THREE.Vector3(0, 1, 0), delta.normalize());
+    return mesh;
+  };
+  const box = (size, position, material, rotation = [0, 0, 0]) =&gt; {
+    const mesh = new THREE.Mesh(new THREE.BoxGeometry(...size), material);
+    mesh.position.set(...position);
+    mesh.rotation.set(...rotation);
+    return mesh;
+  };
+  const sphere = (radius, position, material, segments = 16) =&gt; {
+    const mesh = new THREE.Mesh(new THREE.SphereGeometry(radius, segments, segments), material);
+    mesh.position.set(...position);
+    return mesh;
+  };
+  const curveTube = (points, radius, material) =&gt; {
+    const curve = new THREE.CatmullRomCurve3(points.map(V));
+    return new THREE.Mesh(new THREE.TubeGeometry(curve, 48, radius, 7, false), material);
+  };
+
+  const rear = new THREE.Vector3(-2.02, 1.08, 0);
+  const front = new THREE.Vector3(2.12, 1.08, 0);
+  const bb = new THREE.Vector3(-0.45, 0.82, 0);
+  const seatTop = new THREE.Vector3(-0.72, 2.18, 0);
+  const headBottom = new THREE.Vector3(1.02, 1.66, 0);
+  const headTop = new THREE.Vector3(0.88, 2.22, 0);
+
+  const frameMat = getMaterial('frame', 'frame');
+  [
+    [bb, seatTop, 0.09], [bb, headBottom, 0.12], [seatTop, headTop, 0.085],
+    [headBottom, headTop, 0.1],
+    [[rear.x, rear.y, 0.1], [bb.x, bb.y, 0.1], 0.055],
+    [[rear.x, rear.y, -0.1], [bb.x, bb.y, -0.1], 0.055],
+    [[rear.x, rear.y, 0.1], [seatTop.x, seatTop.y, 0.075], 0.045],
+    [[rear.x, rear.y, -0.1], [seatTop.x, seatTop.y, -0.075], 0.045]
+  ].forEach(([a, b, radius]) =&gt; addPart(tube(a, b, radius, frameMat), 'frame', 'frame'));
+  addPart(tube([bb.x, bb.y, -0.18], [bb.x, bb.y, 0.18], 0.12, frameMat), 'frame', 'frame');
+  addPart(tube([rear.x, rear.y, -0.16], [rear.x, rear.y, 0.16], 0.07, frameMat), 'frame', 'frame');
+  addPart(box([0.72, 0.022, 0.21], [0.17, 1.34, 0.112], frameMat, [0, 0, -0.46]), 'frame', 'frame');
+  addPart(box([0.48, 0.05, 0.13], [-1.2, 0.94, -0.11], getMaterial('frame', 'dark'), [0, 0, 0.17]), 'frame', 'frame');
+  [[-0.32, 1.06, 0.125], [-0.05, 1.27, 0.125]].forEach(position =&gt; addPart(sphere(0.025, position, getMaterial('frame', 'metal')), 'frame', 'frame'));
+
+  const forkDark = getMaterial('fork', 'dark');
+  const forkMetal = getMaterial('fork', 'metal');
+  addPart(tube([0.95, 1.95, 0], [1.11, 1.72, 0], 0.115, forkDark), 'fork', 'fork');
+  addPart(tube([1.1, 1.72, -0.13], [1.49, 1.46, -0.13], 0.052, forkMetal), 'fork', 'fork');
+  addPart(tube([1.1, 1.72, 0.13], [1.49, 1.46, 0.13], 0.052, forkMetal), 'fork', 'fork');
+  addPart(tube([1.46, 1.48, -0.13], [front.x, front.y, -0.13], 0.075, forkDark), 'fork', 'fork');
+  addPart(tube([1.46, 1.48, 0.13], [front.x, front.y, 0.13], 0.075, forkDark), 'fork', 'fork');
+  addPart(tube([1.1, 1.72, -0.15], [1.1, 1.72, 0.15], 0.082, forkDark), 'fork', 'fork');
+  addPart(curveTube([[1.48, 1.48, -0.13], [1.62, 1.59, 0], [1.48, 1.48, 0.13]], 0.038, forkDark), 'fork', 'fork');
+  addPart(sphere(0.052, [1.11, 1.77, 0.13], getMaterial('fork', 'accent')), 'fork', 'fork');
+
+  const wheelRoots = [];
+  const makeWheel = (center, name) =&gt; {
+    const rootGroup = new THREE.Group();
+    rootGroup.position.copy(center);
+    rootGroup.name = name;
+    systems.wheels.add(rootGroup);
+    wheelRoots.push(rootGroup);
+
+    const tireGroup = new THREE.Group();
+    tireGroup.add(new THREE.Mesh(new THREE.TorusGeometry(1.02, 0.082, 12, 72), getMaterial('tire', 'dark')));
+    for (let i = 0; i &lt; 36; i += 1) {
+      const angle = i / 36 * Math.PI * 2;
+      const knob = box([0.13, 0.055, 0.18], [Math.cos(angle) * 1.095, Math.sin(angle) * 1.095, 0], getMaterial('tire', 'dark'), [0, 0, angle + Math.PI / 2]);
+      tireGroup.add(knob);
+    }
+    addPart(tireGroup, 'wheels', 'tire', rootGroup);
+
+    const rimGroup = new THREE.Group();
+    rimGroup.add(new THREE.Mesh(new THREE.TorusGeometry(0.91, 0.025, 8, 72), getMaterial('rim', 'muted')));
+    for (let i = 0; i &lt; 32; i += 1) {
+      const angle = i / 32 * Math.PI * 2;
+      const rimPoint = [Math.cos(angle) * 0.89, Math.sin(angle) * 0.89, i % 2 ? 0.018 : -0.018];
+      const hubPoint = [0, 0, i % 2 ? 0.12 : -0.12];
+      rimGroup.add(tube(hubPoint, rimPoint, 0.005, getMaterial('rim', 'metal'), 6));
+    }
+    addPart(rimGroup, 'wheels', 'rim', rootGroup);
+
+    const hubGroup = new THREE.Group();
+    hubGroup.add(tube([0, 0, -0.18], [0, 0, 0.18], 0.055, getMaterial('hub', 'muted')));
+    hubGroup.add(tube([0, 0, -0.22], [0, 0, 0.22], 0.018, getMaterial('hub', 'metal'), 8));
+    hubGroup.add(new THREE.Mesh(new THREE.CylinderGeometry(0.13, 0.055, 0.045, 20), getMaterial('hub', 'muted')));
+    hubGroup.children[2].rotation.x = Math.PI / 2;
+    addPart(hubGroup, 'wheels', 'hub', rootGroup);
+    return rootGroup;
+  };
+  makeWheel(rear, 'rear-wheel');
+  makeWheel(front, 'front-wheel');
+
+  const makeRotor = (center, z) =&gt; {
+    const group = new THREE.Group();
+    group.position.set(center.x, center.y, z);
+    group.add(new THREE.Mesh(new THREE.TorusGeometry(0.26, 0.017, 8, 48), getMaterial('rotor', 'metal')));
+    for (let i = 0; i &lt; 6; i += 1) {
+      const angle = i * Math.PI / 3;
+      group.add(tube([0, 0, 0], [Math.cos(angle) * 0.245, Math.sin(angle) * 0.245, 0], 0.011, getMaterial('rotor', 'metal'), 6));
+    }
+    addPart(group, 'brakes', 'rotor');
+  };
+  makeRotor(front, 0.205);
+  makeRotor(rear, 0.205);
+  addPart(box([0.12, 0.2, 0.12], [1.84, 1.33, 0.23], getMaterial('brakes', 'accent'), [0, 0, 0.22]), 'brakes', 'brakes');
+  addPart(box([0.12, 0.2, 0.12], [-1.8, 1.31, 0.23], getMaterial('brakes', 'accent'), [0, 0, -0.22]), 'brakes', 'brakes');
+
+  const crankGroup = new THREE.Group();
+  crankGroup.position.copy(bb);
+  crankGroup.add(new THREE.Mesh(new THREE.TorusGeometry(0.28, 0.025, 8, 44), getMaterial('crank', 'dark')));
+  for (let i = 0; i &lt; 28; i += 1) {
+    const angle = i / 28 * Math.PI * 2;
+    crankGroup.add(box([0.035, 0.07, 0.045], [Math.cos(angle) * 0.305, Math.sin(angle) * 0.305, 0], getMaterial('crank', 'metal'), [0, 0, angle]));
+  }
+  crankGroup.add(tube([0, 0, -0.2], [0, 0, 0.25], 0.05, getMaterial('crank', 'metal')));
+  crankGroup.add(tube([0, 0, 0.25], [0.43, -0.12, 0.25], 0.028, getMaterial('crank', 'dark')));
+  crankGroup.add(tube([0, 0, -0.2], [-0.43, 0.12, -0.2], 0.028, getMaterial('crank', 'dark')));
+  addPart(crankGroup, 'drivetrain', 'crank');
+
+  const pedalRight = box([0.28, 0.06, 0.13], [bb.x + 0.49, bb.y - 0.14, 0.25], getMaterial('pedals', 'dark'));
+  const pedalLeft = box([0.28, 0.06, 0.13], [bb.x - 0.49, bb.y + 0.14, -0.2], getMaterial('pedals', 'dark'));
+  addPart(pedalRight, 'drivetrain', 'pedals');
+  addPart(pedalLeft, 'drivetrain', 'pedals');
+
+  const cassetteGroup = new THREE.Group();
+  cassetteGroup.position.copy(rear);
+  for (let i = 0; i &lt; 10; i += 1) {
+    const radius = 0.12 + i * 0.017;
+    const cog = new THREE.Mesh(new THREE.TorusGeometry(radius, 0.011, 6, 40), getMaterial('cassette', 'metal'));
+    cog.position.z = 0.16 + i * 0.012;
+    cassetteGroup.add(cog);
+  }
+  addPart(cassetteGroup, 'drivetrain', 'cassette');
+
+  const derailleurGroup = new THREE.Group();
+  derailleurGroup.add(tube([rear.x + 0.02, rear.y, 0.29], [rear.x + 0.15, rear.y - 0.4, 0.29], 0.042, getMaterial('derailleur', 'dark')));
+  derailleurGroup.add(new THREE.Mesh(new THREE.TorusGeometry(0.085, 0.017, 8, 32), getMaterial('derailleur', 'muted')));
+  derailleurGroup.children[1].position.set(rear.x + 0.16, rear.y - 0.46, 0.29);
+  derailleurGroup.add(new THREE.Mesh(new THREE.TorusGeometry(0.075, 0.015, 8, 32), getMaterial('derailleur', 'muted')));
+  derailleurGroup.children[2].position.set(rear.x + 0.22, rear.y - 0.67, 0.29);
+  derailleurGroup.add(tube([rear.x + 0.16, rear.y - 0.46, 0.29], [rear.x + 0.22, rear.y - 0.67, 0.29], 0.025, getMaterial('derailleur', 'dark')));
+  addPart(derailleurGroup, 'drivetrain', 'derailleur');
+
+  addPart(tube([bb.x - 0.02, bb.y + 0.28, 0.29], [rear.x, rear.y + 0.23, 0.29], 0.012, getMaterial('chain', 'metal'), 6), 'drivetrain', 'chain');
+  addPart(tube([bb.x - 0.02, bb.y - 0.28, 0.29], [rear.x + 0.2, rear.y - 0.58, 0.29], 0.012, getMaterial('chain', 'metal'), 6), 'drivetrain', 'chain');
+
+  addPart(tube(headTop, [0.79, 2.49, 0], 0.055, getMaterial('headset', 'dark')), 'cockpit', 'headset');
+  const headsetGroup = new THREE.Group();
+  [1.91, 2.0, 2.1].forEach((y, index) =&gt; {
+    const ring = new THREE.Mesh(new THREE.TorusGeometry(0.105 - index * 0.01, 0.018, 8, 30), getMaterial('headset', 'metal'));
+    ring.rotation.x = Math.PI / 2;
+    ring.position.set(0.95 - index * 0.025, y, 0);
+    headsetGroup.add(ring);
+  });
+  addPart(headsetGroup, 'cockpit', 'headset');
+
+  addPart(tube([0.79, 2.49, 0], [0.92, 2.56, 0], 0.045, getMaterial('cockpit', 'dark')), 'cockpit', 'cockpit');
+  addPart(tube([0.92, 2.56, -0.68], [0.92, 2.56, 0.68], 0.034, getMaterial('cockpit', 'dark')), 'cockpit', 'cockpit');
+  addPart(tube([0.92, 2.56, -0.68], [0.92, 2.56, -0.5], 0.052, getMaterial('cockpit', 'muted')), 'cockpit', 'cockpit');
+  addPart(tube([0.92, 2.56, 0.5], [0.92, 2.56, 0.68], 0.052, getMaterial('cockpit', 'muted')), 'cockpit', 'cockpit');
+  addPart(box([0.19, 0.035, 0.055], [0.91, 2.47, 0.34], getMaterial('cockpit', 'accent'), [0, 0.08, 0]), 'cockpit', 'cockpit');
+  addPart(box([0.19, 0.035, 0.055], [0.91, 2.47, -0.34], getMaterial('cockpit', 'accent'), [0, -0.08, 0]), 'cockpit', 'cockpit');
+
+  addPart(tube(seatTop, [-0.82, 2.69, 0], 0.052, getMaterial('saddle', 'dark')), 'saddle', 'saddle');
+  const clamp = new THREE.Mesh(new THREE.TorusGeometry(0.07, 0.016, 8, 30), getMaterial('saddle', 'accent'));
+  clamp.rotation.x = Math.PI / 2;
+  clamp.position.copy(seatTop).add(new THREE.Vector3(-0.01, 0.04, 0));
+  addPart(clamp, 'saddle', 'saddle');
+  const saddle = new THREE.Mesh(new THREE.CapsuleGeometry(0.11, 0.42, 6, 12), getMaterial('saddle', 'dark'));
+  saddle.rotation.z = Math.PI / 2;
+  saddle.scale.z = 0.72;
+  saddle.position.set(-0.89, 2.76, 0);
+  addPart(saddle, 'saddle', 'saddle');
+
+  const cableMat = getMaterial('cables', 'secondary');
+  addPart(curveTube([[0.9, 2.46, 0.31], [1.15, 2.28, 0.32], [1.16, 1.93, 0.25], [1.65, 1.62, 0.24], [1.84, 1.38, 0.23]], 0.011, cableMat), 'cables', 'cables');
+  addPart(curveTube([[0.89, 2.48, -0.25], [0.7, 2.25, -0.15], [0.35, 1.85, -0.12], [-0.5, 1.2, -0.12], [-1.7, 1.25, -0.04], [-1.93, 1.03, 0.2]], 0.011, cableMat), 'cables', 'cables');
+  addPart(curveTube([[0.89, 2.5, 0.05], [0.62, 2.27, 0.09], [0.25, 1.8, 0.1], [-0.55, 1.1, 0.13], [-1.3, 0.91, 0.15], [-1.92, 0.87, 0.24]], 0.009, cableMat), 'cables', 'cables');
+
+  const anchors = {
+    overview: { point: [0.05, 1.35, 0], system: 'frame' },
+    frame: { point: [-0.12, 1.72, 0], system: 'frame' },
+    fork: { point: [1.48, 1.96, 0], system: 'fork' },
+    tire: { point: [2.12, 2.08, 0], system: 'wheels' },
+    rim: { point: [-2.02, 1.78, 0], system: 'wheels' },
+    hub: { point: [2.12, 1.08, 0], system: 'wheels' },
+    crank: { point: [bb.x, 0.58, 0.22], system: 'drivetrain' },
+    cassette: { point: [rear.x, rear.y, 0.28], system: 'drivetrain' },
+    derailleur: { point: [-1.82, 0.52, 0.3], system: 'drivetrain' },
+    chain: { point: [-1.22, 0.9, 0.29], system: 'drivetrain' },
+    brakes: { point: [1.92, 0.91, 0.24], system: 'brakes' },
+    rotor: { point: [2.12, 1.08, 0.21], system: 'brakes' },
+    cockpit: { point: [0.92, 2.56, 0], system: 'cockpit' },
+    headset: { point: [0.94, 2.06, 0], system: 'cockpit' },
+    saddle: { point: [-0.87, 2.7, 0], system: 'saddle' },
+    pedals: { point: [0.02, 0.67, 0.24], system: 'drivetrain' },
+    cables: { point: [0.3, 1.82, 0.1], system: 'cables' }
+  };
+
+  const makeLine = (points, material) =&gt; {
+    const geometry = new THREE.BufferGeometry().setFromPoints(points.map(V));
+    return new THREE.Line(geometry, material);
+  };
+  const dimensionMaterial = new THREE.LineBasicMaterial({ color: colors.accent, transparent: true, opacity: 0.82 });
+  const dimensionGroup = new THREE.Group();
+  bike.add(dimensionGroup);
+  dimensionGroup.add(makeLine([[rear.x, 0.11, 0.42], [front.x, 0.11, 0.42]], dimensionMaterial));
+  dimensionGroup.add(makeLine([[rear.x, 0.02, 0.42], [rear.x, 0.28, 0.42]], dimensionMaterial));
+  dimensionGroup.add(makeLine([[front.x, 0.02, 0.42], [front.x, 0.28, 0.42]], dimensionMaterial));
+  dimensionGroup.add(makeLine([[front.x, front.y, 0.42], [front.x, front.y + 1.02, 0.42]], dimensionMaterial));
+  dimensionGroup.add(makeLine([[front.x - 0.1, front.y, 0.42], [front.x + 0.1, front.y, 0.42]], dimensionMaterial));
+  dimensionGroup.add(makeLine([[front.x - 0.1, front.y + 1.02, 0.42], [front.x + 0.1, front.y + 1.02, 0.42]], dimensionMaterial));
+  dimensionGroup.add(makeLine([[1.14, 1.74, 0.36], [1.5, 1.47, 0.36]], dimensionMaterial));
+  dimensionGroup.add(makeLine([[1.09, 1.67, 0.36], [1.2, 1.81, 0.36]], dimensionMaterial));
+  dimensionGroup.add(makeLine([[1.44, 1.4, 0.36], [1.56, 1.54, 0.36]], dimensionMaterial));
+
+  const axisGroup = new THREE.Group();
+  const axisOrigin = new THREE.Vector3(-2.95, 0.14, 0.35);
+  axisGroup.add(new THREE.ArrowHelper(new THREE.Vector3(1, 0, 0), axisOrigin, 0.62, colors.frame, 0.13, 0.08));
+  axisGroup.add(new THREE.ArrowHelper(new THREE.Vector3(0, 1, 0), axisOrigin, 0.62, colors.accent, 0.13, 0.08));
+  axisGroup.add(new THREE.ArrowHelper(new THREE.Vector3(0, 0, 1), axisOrigin, 0.62, colors.secondary, 0.13, 0.08));
+  bike.add(axisGroup);
+
+  const forceGroup = new THREE.Group();
+  forceGroup.visible = false;
+  forceGroup.add(new THREE.ArrowHelper(new THREE.Vector3(0, -1, 0), new THREE.Vector3(-0.88, 3.45, 0.15), 0.75, colors.accent, 0.16, 0.1));
+  forceGroup.add(new THREE.ArrowHelper(new THREE.Vector3(0, 1, 0), new THREE.Vector3(rear.x, 0.08, 0.15), 0.68, colors.frame, 0.15, 0.09));
+  forceGroup.add(new THREE.ArrowHelper(new THREE.Vector3(0, 1, 0), new THREE.Vector3(front.x, 0.08, 0.15), 0.68, colors.frame, 0.15, 0.09));
+  forceGroup.add(new THREE.ArrowHelper(new THREE.Vector3(1, 0, 0), new THREE.Vector3(bb.x - 0.6, bb.y - 0.15, 0.38), 0.72, colors.secondary, 0.15, 0.09));
+  bike.add(forceGroup);
+
+  const engineeringLabels = [
+    { text: 'L：轴距基准', point: [0.05, 0.11, 0.42], kind: 'dimension' },
+    { text: 'R：轮组半径', point: [front.x, 1.63, 0.42], kind: 'dimension' },
+    { text: 's≈100 mm', point: [1.33, 1.61, 0.36], kind: 'dimension' },
+    { text: 'W：骑手载荷', point: [-0.88, 3.45, 0.15], kind: 'force' },
+    { text: 'Rᵣ：后轮支反力', point: [rear.x, 0.72, 0.15], kind: 'force' },
+    { text: 'R𝒇：前轮支反力', point: [front.x, 0.72, 0.15], kind: 'force' },
+    { text: 'Fₜ：踏力切向分量', point: [bb.x + 0.1, bb.y - 0.15, 0.38], kind: 'force' }
+  ];
+  engineeringLabels.forEach(item =&gt; {
+    const label = document.createElement('span');
+    label.className = 'viz-badge mt3d-engineering-label';
+    label.textContent = item.text;
+    labelLayer.appendChild(label);
+    item.element = label;
+  });
+
+  const labelItems = [
+    ['frame', '车架'], ['fork', '前叉'], ['tire', '轮胎'], ['crank', '曲柄'],
+    ['cassette', '飞轮'], ['brakes', '碟刹'], ['cockpit', '操控'], ['saddle', '坐垫']
+  ];
+  const labelButtons = new Map();
+  labelItems.forEach(([key, text]) =&gt; {
+    const button = document.createElement('button');
+    button.type = 'button';
+    button.className = 'btn mt3d-label';
+    button.textContent = text;
+    button.addEventListener('click', () =&gt; selectPart(key, true));
+    labelLayer.appendChild(button);
+    labelButtons.set(key, button);
+  });
+
+  const systemOriginalPositions = new Map();
+  Object.entries(systems).forEach(([key, group]) =&gt; systemOriginalPositions.set(key, group.position.clone()));
+  const explodedOffsets = {
+    frame: new THREE.Vector3(0, 0, 0), fork: new THREE.Vector3(0.3, 0.1, 0.35),
+    wheels: new THREE.Vector3(0, 0, -0.55), drivetrain: new THREE.Vector3(0, -0.06, 0.52),
+    brakes: new THREE.Vector3(0.08, 0.1, 0.78), cockpit: new THREE.Vector3(0, 0.25, 0.22),
+    saddle: new THREE.Vector3(-0.12, 0.27, 0), cables: new THREE.Vector3(0, 0, 0.9)
+  };
+
+  let exploded = false;
+  let driveActive = false;
+  let selectedPart = 'overview';
+  let focusTarget = initialTarget.clone();
+
+  const clearHighlight = () =&gt; {
+    materialCache.forEach(material =&gt; {
+      material.emissive.setRGB(0, 0, 0);
+      material.emissiveIntensity = 0;
+    });
+  };
+  const highlightPart = key =&gt; {
+    clearHighlight();
+    if (!partMeshes.has(key)) return;
+    partMeshes.get(key).forEach(mesh =&gt; {
+      if (mesh.material?.emissive) {
+        mesh.material.emissive.copy(colors.accent);
+        mesh.material.emissiveIntensity = 0.34;
+      }
+    });
+  };
+  const anchorWorld = key =&gt; {
+    const anchor = anchors[key] || anchors.overview;
+    const point = V(anchor.point);
+    const group = systems[anchor.system];
+    if (group) point.add(group.position);
+    return bike.localToWorld(point);
+  };
+  const selectPart = (key, focus = false) =&gt; {
+    if (!info[key]) key = 'overview';
+    selectedPart = key;
+    select.value = key;
+    const item = info[key];
+    systemText.textContent = item.system;
+    specText.textContent = item.spec;
+    titleText.textContent = item.title;
+    functionText.textContent = item.function;
+    teachText.textContent = item.teach;
+    checkText.textContent = item.check;
+    highlightPart(key);
+    if (focus &amp;&amp; key !== 'overview') focusTarget = anchorWorld(key);
+    if (key === 'overview') focusTarget = initialTarget.clone();
+  };
+
+  const setEngineeringView = mode =&gt; {
+    focusTarget.copy(initialTarget);
+    controls.target.copy(initialTarget);
+    if (mode === 'iso') {
+      activeCamera = perspectiveCamera;
+      activeCamera.up.set(0, 1, 0);
+      activeCamera.position.copy(initialCamera);
+      activeCamera.zoom = 1;
+      controls.enableRotate = true;
+      controls.autoRotate = autoCheckbox.checked;
+    } else {
+      activeCamera = orthographicCamera;
+      activeCamera.zoom = 1;
+      controls.enableRotate = true;
+      if (mode === 'side') {
+        activeCamera.up.set(0, 1, 0);
+        activeCamera.position.set(initialTarget.x, initialTarget.y, 8);
+      } else if (mode === 'front') {
+        activeCamera.up.set(0, 1, 0);
+        activeCamera.position.set(8, initialTarget.y, 0);
+      } else {
+        activeCamera.up.set(0, 0, -1);
+        activeCamera.position.set(initialTarget.x, 8, 0);
+      }
+      controls.autoRotate = false;
+      autoCheckbox.checked = false;
+    }
+    controls.object = activeCamera;
+    activeCamera.lookAt(initialTarget);
+    controls.update();
+  };
+
+  const raycaster = new THREE.Raycaster();
+  const pointer = new THREE.Vector2();
+  let downPoint = null;
+  canvas.addEventListener('pointerdown', event =&gt; {
+    downPoint = { x: event.clientX, y: event.clientY };
+    controls.autoRotate = false;
+    autoCheckbox.checked = false;
+  });
+  canvas.addEventListener('pointerup', event =&gt; {
+    if (!downPoint || Math.hypot(event.clientX - downPoint.x, event.clientY - downPoint.y) &gt; 5) return;
+    const rect = canvas.getBoundingClientRect();
+    pointer.x = ((event.clientX - rect.left) / rect.width) * 2 - 1;
+    pointer.y = -((event.clientY - rect.top) / rect.height) * 2 + 1;
+    raycaster.setFromCamera(pointer, activeCamera);
+    const hit = raycaster.intersectObjects(Object.values(systems), true)[0];
+    selectPart(hit?.object.userData.part || 'overview');
+  });
+
+  select.addEventListener('change', () =&gt; selectPart(select.value, true));
+  viewSelect.addEventListener('change', () =&gt; setEngineeringView(viewSelect.value));
+  resetButton.addEventListener('click', () =&gt; {
+    setEngineeringView(viewSelect.value);
+    selectPart('overview');
+  });
+  explodeButton.addEventListener('click', () =&gt; {
+    exploded = !exploded;
+    explodeButton.setAttribute('aria-pressed', String(exploded));
+    explodeButton.classList.toggle('btn-primary', exploded);
+  });
+  driveButton.addEventListener('click', () =&gt; {
+    driveActive = !driveActive;
+    driveButton.setAttribute('aria-pressed', String(driveActive));
+    driveButton.classList.toggle('btn-primary', driveActive);
+    if (driveActive) selectPart('chain');
+  });
+  loadsButton.addEventListener('click', () =&gt; {
+    forceGroup.visible = !forceGroup.visible;
+    loadsButton.setAttribute('aria-pressed', String(forceGroup.visible));
+    loadsButton.classList.toggle('btn-primary', forceGroup.visible);
+  });
+  autoCheckbox.addEventListener('change', () =&gt; {
+    controls.autoRotate = autoCheckbox.checked;
+  });
+  wireCheckbox.addEventListener('change', () =&gt; {
+    materialCache.forEach(material =&gt; {
+      material.wireframe = wireCheckbox.checked;
+      material.needsUpdate = true;
+    });
+  });
+
+  const resize = () =&gt; {
+    const width = Math.max(1, stage.clientWidth);
+    const height = Math.max(1, stage.clientHeight);
+    renderer.setSize(width, height, false);
+    const aspect = width / height;
+    perspectiveCamera.aspect = aspect;
+    perspectiveCamera.updateProjectionMatrix();
+    const orthoHeight = Math.max(4.4, 6.8 / aspect);
+    orthographicCamera.left = -orthoHeight * aspect / 2;
+    orthographicCamera.right = orthoHeight * aspect / 2;
+    orthographicCamera.top = orthoHeight / 2;
+    orthographicCamera.bottom = -orthoHeight / 2;
+    orthographicCamera.updateProjectionMatrix();
+  };
+  new ResizeObserver(resize).observe(stage);
+  resize();
+
+  const updateLabels = () =&gt; {
+    const rect = canvas.getBoundingClientRect();
+    labelButtons.forEach((button, key) =&gt; {
+      const projected = anchorWorld(key).project(activeCamera);
+      const visible = labelsCheckbox.checked &amp;&amp; projected.z &gt; -1 &amp;&amp; projected.z &lt; 1 &amp;&amp; Math.abs(projected.x) &lt; 1.08 &amp;&amp; Math.abs(projected.y) &lt; 1.08;
+      button.hidden = !visible;
+      if (visible) {
+        button.style.left = `${(projected.x * 0.5 + 0.5) * rect.width}px`;
+        button.style.top = `${(-projected.y * 0.5 + 0.5) * rect.height}px`;
+      }
+      button.classList.toggle('btn-primary', selectedPart === key);
+    });
+    engineeringLabels.forEach(item =&gt; {
+      const projected = bike.localToWorld(V(item.point)).project(activeCamera);
+      const visible = item.kind === 'dimension' || forceGroup.visible;
+      item.element.hidden = !visible || projected.z &lt;= -1 || projected.z &gt;= 1 || Math.abs(projected.x) &gt; 1.08 || Math.abs(projected.y) &gt; 1.08;
+      if (!item.element.hidden) {
+        item.element.style.left = `${(projected.x * 0.5 + 0.5) * rect.width}px`;
+        item.element.style.top = `${(-projected.y * 0.5 + 0.5) * rect.height}px`;
+      }
+    });
+  };
+
+  const clock = new THREE.Clock();
+  const animate = () =&gt; {
+    const delta = Math.min(clock.getDelta(), 0.05);
+    Object.entries(systems).forEach(([key, group]) =&gt; {
+      const target = systemOriginalPositions.get(key).clone().add(exploded ? explodedOffsets[key] : new THREE.Vector3());
+      group.position.lerp(target, 1 - Math.pow(0.002, delta));
+    });
+    controls.target.lerp(focusTarget, 1 - Math.pow(0.004, delta));
+    if (driveActive) {
+      wheelRoots.forEach(group =&gt; group.rotation.z -= delta * 1.5);
+      crankGroup.rotation.z -= delta * 2.8;
+      cassetteGroup.rotation.z -= delta * 1.5;
+    }
+    controls.update();
+    updateLabels();
+    renderer.render(scene, activeCamera);
+    requestAnimationFrame(animate);
+  };
+  setEngineeringView('iso');
+  selectPart('overview');
+  animate();
+&lt;/script&gt;
+
+
+&lt;style id=&quot;codex-visualization-document-scrollbar&quot;&gt;html,body{scrollbar-width:none!important}html::-webkit-scrollbar,body::-webkit-scrollbar{display:none!important}&lt;/style&gt;
+
+&lt;script src=&quot;https://unpkg.com/@floating-ui/core@1.7.3/dist/floating-ui.core.umd.min.js&quot;&gt;&lt;/script&gt;
+&lt;script src=&quot;https://unpkg.com/@floating-ui/dom@1.7.4/dist/floating-ui.dom.umd.min.js&quot;&gt;&lt;/script&gt;
+&lt;script&gt;
+(() =&gt; {
+  if (window.FloatingUIDOM == null) {
+    return;
+  }
+  const { autoUpdate, computePosition, flip, offset, shift, size } =
+    window.FloatingUIDOM;
+  const tooltipPlacements = new Set([&quot;top&quot;, &quot;right&quot;, &quot;bottom&quot;, &quot;left&quot;]);
+  const tooltipId = `codex-visualization-tooltip-${
+    window.crypto?.randomUUID?.() ?? Date.now().toString(36)
+  }`;
+  const tooltipGap = 5;
+  const hoverDelay = 700;
+  const skipDelay = 300;
+  let activeTrigger = null;
+  let pendingTrigger = null;
+  let tooltip = null;
+  let openTimeout = null;
+  let autoUpdateCleanup = null;
+  let positionRequest = 0;
+  let skipDelayUntil = 0;
+
+  const getTrigger = (target) =&gt;
+    target?.nodeType === Node.ELEMENT_NODE
+      ? target.closest(&quot;[data-tooltip]&quot;)
+      : null;
+  const containsTarget = (trigger, target) =&gt;
+    target?.nodeType != null &amp;&amp; trigger.contains(target);
+  const getContent = (trigger) =&gt;
+    trigger.getAttribute(&quot;data-tooltip&quot;)?.trim() ?? &quot;&quot;;
+  const getPlacement = (trigger) =&gt; {
+    const placement = trigger.getAttribute(&quot;data-tooltip-placement&quot;);
+    return tooltipPlacements.has(placement) ? placement : &quot;top&quot;;
+  };
+  const getTooltip = () =&gt; {
+    if (tooltip == null) {
+      tooltip = document.createElement(&quot;div&quot;);
+      tooltip.id = tooltipId;
+      tooltip.className = &quot;tooltip&quot;;
+      tooltip.setAttribute(&quot;role&quot;, &quot;tooltip&quot;);
+    }
+    return tooltip;
+  };
+  const setDescribedBy = (trigger, described) =&gt; {
+    const ids = new Set(
+      (trigger.getAttribute(&quot;aria-describedby&quot;) ?? &quot;&quot;)
+        .split(/\s+/)
+        .filter(Boolean),
+    );
+    if (described) {
+      ids.add(tooltipId);
+    } else {
+      ids.delete(tooltipId);
+    }
+    if (ids.size === 0) {
+      trigger.removeAttribute(&quot;aria-describedby&quot;);
+    } else {
+      trigger.setAttribute(&quot;aria-describedby&quot;, [...ids].join(&quot; &quot;));
+    }
+  };
+  const clearOpenTimeout = () =&gt; {
+    if (openTimeout != null) {
+      window.clearTimeout(openTimeout);
+      openTimeout = null;
+    }
+    pendingTrigger = null;
+  };
+  const closeTooltip = (activateSkipDelay = true) =&gt; {
+    clearOpenTimeout();
+    positionRequest += 1;
+    autoUpdateCleanup?.();
+    autoUpdateCleanup = null;
+    if (activeTrigger == null) {
+      return;
+    }
+    setDescribedBy(activeTrigger, false);
+    activeTrigger = null;
+    tooltip?.remove();
+    if (activateSkipDelay) {
+      skipDelayUntil = Date.now() + skipDelay;
+    }
+  };
+  const updatePosition = (trigger, floating) =&gt; {
+    const request = ++positionRequest;
+    void computePosition(trigger, floating, {
+      middleware: [
+        offset(tooltipGap),
+        flip({ padding: tooltipGap }),
+        shift({ padding: tooltipGap }),
+        size({
+          padding: tooltipGap,
+          apply({ availableHeight, availableWidth, elements }) {
+            elements.floating.style.setProperty(
+              &quot;--tooltip-available-width&quot;,
+              `${Math.max(0, availableWidth)}px`,
+            );
+            elements.floating.style.setProperty(
+              &quot;--tooltip-available-height&quot;,
+              `${Math.max(0, availableHeight)}px`,
+            );
+          },
+        }),
+      ],
+      placement: getPlacement(trigger),
+      strategy: &quot;fixed&quot;,
+    })
+      .then(({ x, y }) =&gt; {
+        if (activeTrigger !== trigger || request !== positionRequest) {
+          return;
+        }
+        const scale = window.devicePixelRatio || 1;
+        floating.style.transform = `translate(${Math.round(x * scale) / scale}px, ${Math.round(y * scale) / scale}px)`;
+        floating.style.visibility = &quot;visible&quot;;
+      })
+      .catch(() =&gt; {
+        if (activeTrigger === trigger &amp;&amp; request === positionRequest) {
+          closeTooltip(false);
+        }
+      });
+  };
+  const openTooltip = (trigger) =&gt; {
+    const content = getContent(trigger);
+    if (!trigger.isConnected || content.length === 0) {
+      return;
+    }
+    clearOpenTimeout();
+    if (activeTrigger === trigger) {
+      return;
+    }
+    closeTooltip();
+    const floating = getTooltip();
+    floating.textContent = content;
+    floating.style.visibility = &quot;hidden&quot;;
+    floating.style.transform = &quot;translate(0, 0)&quot;;
+    document.body.appendChild(floating);
+    activeTrigger = trigger;
+    setDescribedBy(trigger, true);
+    autoUpdateCleanup = autoUpdate(trigger, floating, () =&gt; {
+      updatePosition(trigger, floating);
+    });
+  };
+  const requestOpen = (trigger, immediate = false) =&gt; {
+    if (
+      getContent(trigger).length === 0 ||
+      activeTrigger === trigger ||
+      pendingTrigger === trigger
+    ) {
+      return;
+    }
+    clearOpenTimeout();
+    pendingTrigger = trigger;
+    const delay =
+      immediate || activeTrigger != null || Date.now() &lt; skipDelayUntil
+        ? 0
+        : hoverDelay;
+    if (delay === 0) {
+      openTooltip(trigger);
+      return;
+    }
+    openTimeout = window.setTimeout(() =&gt; {
+      openTimeout = null;
+      pendingTrigger = null;
+      openTooltip(trigger);
+    }, delay);
+  };
+  const handlePointerOpen = (event) =&gt; {
+    if (event.pointerType === &quot;touch&quot;) {
+      return;
+    }
+    const trigger = getTrigger(event.target);
+    if (trigger == null || containsTarget(trigger, event.relatedTarget)) {
+      return;
+    }
+    requestOpen(trigger);
+  };
+  const handleLeave = (event) =&gt; {
+    const trigger = getTrigger(event.target);
+    if (trigger == null || containsTarget(trigger, event.relatedTarget)) {
+      return;
+    }
+    if (activeTrigger === trigger || pendingTrigger === trigger) {
+      closeTooltip();
+    }
+  };
+  const handleFocusIn = (event) =&gt; {
+    const trigger = getTrigger(event.target);
+    if (trigger?.matches(&quot;:focus-visible&quot;)) {
+      requestOpen(trigger, true);
+    }
+  };
+  const handleKeyDown = (event) =&gt; {
+    if (event.key === &quot;Escape&quot;) {
+      closeTooltip();
+    }
+  };
+  const handleContextMenu = (event) =&gt; {
+    const trigger = getTrigger(event.target);
+    if (activeTrigger === trigger || pendingTrigger === trigger) {
+      closeTooltip();
+    }
+  };
+  const destroy = () =&gt; {
+    closeTooltip(false);
+    document.removeEventListener(&quot;pointerover&quot;, handlePointerOpen);
+    document.removeEventListener(&quot;pointerout&quot;, handleLeave);
+    document.removeEventListener(&quot;focusin&quot;, handleFocusIn);
+    document.removeEventListener(&quot;focusout&quot;, handleLeave);
+    document.removeEventListener(&quot;keydown&quot;, handleKeyDown);
+    document.removeEventListener(&quot;contextmenu&quot;, handleContextMenu);
+    tooltip = null;
+  };
+
+  document.addEventListener(&quot;pointerover&quot;, handlePointerOpen);
+  document.addEventListener(&quot;pointerout&quot;, handleLeave);
+  document.addEventListener(&quot;focusin&quot;, handleFocusIn);
+  document.addEventListener(&quot;focusout&quot;, handleLeave);
+  document.addEventListener(&quot;keydown&quot;, handleKeyDown);
+  document.addEventListener(&quot;contextmenu&quot;, handleContextMenu);
+  window.addEventListener(&quot;pagehide&quot;, destroy, { once: true });
+})();
+&lt;/script&gt;
+&lt;script id=&quot;codex-visualization-lucide&quot; async src=&quot;https://unpkg.com/lucide@1.17.0/dist/umd/lucide.js&quot;&gt;&lt;/script&gt;
+&lt;script&gt;
+(() =&gt; {
+  const initialize = () =&gt; {
+    globalThis.lucide?.createIcons({ attrs: { width: 16, height: 16 } });
+  };
+  if (globalThis.lucide != null) {
+    initialize();
+    return;
+  }
+  document
+    .getElementById(&quot;codex-visualization-lucide&quot;)
+    ?.addEventListener(&quot;load&quot;, initialize, { once: true });
+})();
+&lt;/script&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;
+"></iframe>
+<script>(() => {
+  const frame = document.getElementById("codex-visualization");
+  if (!(frame instanceof HTMLIFrameElement)) {
+    return;
+  }
+  let viewportHeight = globalThis.innerHeight;
+
+  const channel = new MessageChannel();
+  channel.port1.addEventListener("message", (event) => {
+    const data = event.data;
+    if (typeof data !== "object" || data == null) {
+      return;
+    }
+    if (data.type === "height") {
+      const height = data.height;
+      if (
+        typeof height === "number" &&
+        Number.isFinite(height) &&
+        height >= 0 &&
+        height <= 10_000
+      ) {
+        frame.style.height = Math.ceil(height) + "px";
+      }
+      return;
+    }
+    if (data.type === "scroll-to") {
+      const top = data.top;
+      if (
+        typeof top === "number" &&
+        Number.isFinite(top) &&
+        top >= 0 &&
+        globalThis.navigator.userActivation?.isActive === true
+      ) {
+        globalThis.scrollTo({
+          top: Math.ceil(
+            globalThis.scrollY + frame.getBoundingClientRect().top + top,
+          ),
+        });
+      }
+      return;
+    }
+    if (data.type === "open-external") {
+      const rawHref = data.href;
+      if (typeof rawHref !== "string") {
+        return;
+      }
+      let href;
+      try {
+        const url = new URL(rawHref, document.baseURI);
+        if (url.protocol !== "https:") {
+          return;
+        }
+        href = url.href;
+      } catch {
+        return;
+      }
+      if (globalThis.navigator.userActivation?.isActive === true) {
+        const anchor = document.createElement("a");
+        anchor.href = href;
+        anchor.rel = "noopener noreferrer";
+        anchor.target = "_blank";
+        document.body.appendChild(anchor);
+        anchor.click();
+        anchor.remove();
+      }
+      return;
+    }
+    if (data.type === "follow-up") {
+      const prompt = data.prompt;
+      if (
+        typeof prompt !== "string" ||
+        globalThis.navigator.userActivation?.isActive !== true
+      ) {
+        return;
+      }
+      const title = data.title;
+      globalThis.prompt(typeof title === "string" ? title : prompt, prompt);
+    }
+  });
+  channel.port1.start();
+  const srcdoc = frame.dataset.srcdoc;
+  if (srcdoc == null) {
+    return;
+  }
+  globalThis.addEventListener("resize", () => {
+    const height = Number.parseFloat(frame.style.height);
+    if (!Number.isFinite(height) || height <= viewportHeight) {
+      frame.style.removeProperty("height");
+    }
+    viewportHeight = globalThis.innerHeight;
+    channel.port1.postMessage({ type: "measure" });
+  });
+  frame.addEventListener(
+    "load",
+    () => {
+      frame.contentWindow?.postMessage(
+        { type: "codex-visualization-initialize" },
+        "*",
+        [channel.port2],
+      );
+    },
+    { once: true },
+  );
+  frame.srcdoc = srcdoc;
+  delete frame.dataset.srcdoc;
+})();
+</script>
+</body>
+</html>
