@@ -1,0 +1,4 @@
+interface:
+  display_name: "Teach3D"
+  short_description: "把实物与过程制作成互动 3D 教学课程"
+  default_prompt: "使用 $teach3d 把我提供的对象、结构或过程制作成可在浏览器使用的互动 3D 教学课程。"
