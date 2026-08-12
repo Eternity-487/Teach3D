@@ -1,0 +1,20 @@
+{
+  "schemaVersion": "1.0",
+  "subject": "Trek Marlin 6 山地自行车（教学示例）",
+  "audience": "机械基础课程学习者",
+  "durationMinutes": 8,
+  "languages": ["zh-CN", "en"],
+  "verifiedSources": [],
+  "assumptions": ["模型比例与配置用于课堂示意，精确参数需核对官方资料。"],
+  "learningObjectives": ["识别主要系统", "追踪动力传递", "解释制动与载荷"],
+  "components": ["frame", "fork", "wheels", "drivetrain", "brakes", "cockpit"],
+  "lessonSteps": [
+    {"id": "observe", "title": "认识整车", "action": "打开部件标注并旋转模型。", "question": "哪些部件负责承载？", "evidence": "指出车架、前叉和轮组。"},
+    {"id": "drive", "title": "追踪传动", "action": "打开传动演示。", "question": "输入如何到达后轮？", "evidence": "按顺序说明曲柄、链条、飞轮和后轮。"},
+    {"id": "loads", "title": "分析载荷", "action": "打开载荷与分解视图。", "question": "主要载荷经过哪些结构？", "evidence": "用模型中的箭头和连接关系支持回答。"}
+  ],
+  "requiredInteractions": ["orbit", "zoom", "reset", "component-selection"],
+  "optionalInteractions": ["explode", "animation", "loads"],
+  "delivery": {"classroomProjection": true, "mobileReview": true, "bilingualPublicReadme": true, "liveDemo": "https://trek-marlin-6-mechanical-teaching.qitan874.chatgpt.site", "previewImage": "public/showcase/trek-marlin-6-demo.png"},
+  "boundaryNote": "本模型用于教学示意，不替代官方技术资料、制造图纸或专业操作规范。"
+}
