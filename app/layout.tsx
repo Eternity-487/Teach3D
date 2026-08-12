@@ -12,7 +12,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Teach3D｜把任何知识对象变成能操作的 3D 课程",
     description: "通用教学类 3D Skill，包含双语说明、在线案例、效果配图和直接安装入口。",
-    images: [{ url: "/assets/teach3d-showcase.jpg", width: 1200, height: 630, alt: "Teach3D 首个公开教学案例" }],
+    images: [{ url: "/assets/teach3d-showcase.jpg", width: 1280, height: 640, alt: "Teach3D 通用互动教学项目" }],
     locale: "zh_CN",
     type: "website",
   },

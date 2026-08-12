@@ -180,7 +180,7 @@ export default function Home() {
           </dl>
         </div>
         <figure className="hero-showcase">
-          <Image src="/assets/teach3d-showcase.jpg" alt="Teach3D 通用互动教学项目分享图" width={1200} height={630} priority />
+          <Image src="/assets/teach3d-showcase.jpg" alt="Teach3D 通用互动教学项目分享图" width={1280} height={640} priority />
           <figcaption>
             <div><span>{t.firstCase}</span><strong>{t.caseName}</strong></div>
             <p>{t.caseDesc}</p>
