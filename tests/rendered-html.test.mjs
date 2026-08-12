@@ -23,6 +23,8 @@ test("renders the bilingual Teach3D project experience", async () => {
   assert.match(html, /TEACH/);
   assert.match(html, /把任何知识对象/);
   assert.match(html, /在线案例/);
+  assert.match(html, /模型来源/);
+  assert.match(html, /真实模型优先/);
   assert.match(html, /安装 Skill/);
   assert.doesNotMatch(html, /Your site is taking shape|Codex is working/);
 });
@@ -43,6 +45,8 @@ test("keeps the installable skill, live 3D asset, screenshot, and social preview
   assert.match(layout, /\/assets\/teach3d-showcase\.jpg/);
   assert.match(model, /THREE\.WebGLRenderer/);
   assert.match(skill, /name: teach3d/);
+  assert.match(skill, /model-asset-pipeline/);
+  assert.match(skill, /Asset rights/);
   assert.ok(screenshot.byteLength > 30_000);
   assert.ok(socialImage.byteLength > 30_000);
   assert.ok(archive.byteLength > 1_000);

@@ -56,6 +56,17 @@ a { color:inherit; text-decoration:none; }
 .capability-grid h3 { margin:65px 0 12px; font-size:23px; letter-spacing:-.03em; }
 .capability-grid p { margin:0; color:var(--muted); font-size:13px; line-height:1.65; }
 
+.source-section { padding:96px max(32px,calc((100vw - 1440px)/2)); background:#dcebf1; }
+.source-section .section-kicker { color:#087fae; }
+.source-grid { display:grid; grid-template-columns:repeat(4,1fr); border-top:1px solid var(--ink); border-bottom:1px solid var(--ink); }
+.source-grid article { min-height:265px; padding:24px; border-right:1px solid rgba(11,18,32,.18); position:relative; }
+.source-grid article:last-child { border-right:0; }
+.source-grid span { color:#087fae; font:700 11px/1 ui-monospace,monospace; }
+.source-grid b { position:absolute; right:22px; top:21px; padding:5px 8px; border:1px solid rgba(11,18,32,.2); font-size:9px; font-weight:750; }
+.source-grid h3 { margin:80px 0 12px; font-size:22px; letter-spacing:-.03em; }
+.source-grid p { margin:0; color:#465769; font-size:12px; line-height:1.7; }
+.source-rule { margin:22px 0 0; padding-left:16px; border-left:3px solid var(--orange); color:#465769; font-size:12px; line-height:1.7; }
+
 .demo-section { padding:92px max(32px,calc((100vw - 1440px)/2)); background:var(--ink); color:white; }
 .demo-section .section-kicker { color:var(--cyan); }
 .demo-intro p { margin:0 0 14px; color:#aebccc; }
@@ -87,9 +98,14 @@ a { color:inherit; text-decoration:none; }
 .real-preview { max-width:920px; margin:40px auto 0; }
 .real-preview img { display:block; width:100%; background:white; }
 .real-preview figcaption { margin-top:10px; color:#8190a3; text-align:center; font-size:10px; }
+.showcase-links { max-width:920px; margin:32px auto 0; display:grid; grid-template-columns:1fr 1fr; gap:12px; }
+.showcase-links a { min-height:92px; padding:19px; display:grid; grid-template-columns:1fr auto; align-items:end; border:1px solid rgba(255,255,255,.18); background:#111d2d; }
+.showcase-links span { grid-column:1/-1; color:var(--cyan); font:9px/1 ui-monospace,monospace; letter-spacing:.08em; }
+.showcase-links strong { font-size:14px; }
+.showcase-links em { color:var(--cyan); font-style:normal; }
 
 .workflow-section { width:min(1440px,calc(100% - 64px)); margin:auto; padding:104px 0; }
-.workflow-list { list-style:none; margin:0; padding:0; display:grid; grid-template-columns:repeat(5,1fr); border-top:1px solid var(--ink); }
+.workflow-list { list-style:none; margin:0; padding:0; display:grid; grid-template-columns:repeat(6,1fr); border-top:1px solid var(--ink); }
 .workflow-list li { min-height:250px; padding:24px 22px; border-right:1px solid var(--line); }
 .workflow-list li:last-child { border-right:0; }
 .workflow-list span { color:#0783af; font:650 11px/1 ui-monospace,monospace; }
@@ -132,7 +148,10 @@ a { color:inherit; text-decoration:none; }
   .capability-grid { grid-template-columns:repeat(2,1fr); }
   .capability-grid article:nth-child(2) { border-right:0; }
   .capability-grid article:nth-child(-n+2) { border-bottom:1px solid var(--line); }
-  .workflow-list { grid-template-columns:repeat(5,minmax(180px,1fr)); overflow:auto; }
+  .source-grid { grid-template-columns:repeat(2,1fr); }
+  .source-grid article:nth-child(2) { border-right:0; }
+  .source-grid article:nth-child(-n+2) { border-bottom:1px solid rgba(11,18,32,.18); }
+  .workflow-list { grid-template-columns:repeat(6,minmax(180px,1fr)); overflow:auto; }
   .install-section { grid-template-columns:1fr; }
 }
 
@@ -152,6 +171,11 @@ a { color:inherit; text-decoration:none; }
   .capability-grid article { min-height:190px; border-right:0; border-bottom:1px solid var(--line); }
   .capability-grid article:last-child { border-bottom:0; }
   .capability-grid h3 { margin-top:45px; }
+  .source-section { padding:68px 17px; }
+  .source-grid { grid-template-columns:1fr; }
+  .source-grid article { min-height:210px; border-right:0; border-bottom:1px solid rgba(11,18,32,.18); }
+  .source-grid article:last-child { border-bottom:0; }
+  .source-grid h3 { margin-top:55px; }
   .demo-section { padding:68px 17px; }
   .demo-shell { grid-template-columns:1fr; }
   .lesson-rail { border-right:0; border-bottom:1px solid rgba(255,255,255,.15); }
@@ -160,6 +184,7 @@ a { color:inherit; text-decoration:none; }
   .model-panel { min-height:650px; }
   .model-toolbar p { display:none; }
   .model-toolbar { grid-template-columns:1fr auto; }
+  .showcase-links { grid-template-columns:1fr; }
   .workflow-section { padding:76px 0; }
   .install-section { padding:70px 17px; gap:50px; }
   .path-grid { grid-template-columns:1fr; }

@@ -1,5 +1,5 @@
 {
-  "schemaVersion": "1.1",
+  "schemaVersion": "1.2",
   "subject": "Trek Marlin 6 山地自行车（教学示例）",
   "audience": "机械基础课程学习者",
   "durationMinutes": 8,
@@ -16,6 +16,16 @@
     ],
     "signatureFeatures": ["hardtail frame silhouette", "front suspension fork", "29-inch wheel proportion", "external drivetrain"],
     "acceptanceCriteria": ["默认视角可识别为现代硬尾山地车", "车架、前叉与轮组比例协调", "传动与制动部件在近景可辨认"]
+  },
+  "assetPlan": {
+    "sourceType": "reference-led custom model",
+    "sourceUrl": "",
+    "creator": "Teach3D showcase",
+    "license": "project-owned",
+    "licenseUrl": "",
+    "attribution": "Teach3D showcase model",
+    "permissions": {"modify": true, "redistribute": true, "publicWebDisplay": true},
+    "delivery": {"previewImage": "public/showcase/trek-marlin-6-demo.png", "mobileModel": "", "desktopModel": "public/trek-marlin-6-teaching-3d.html", "initialPayloadTargetMB": 15, "fallback": "text-and-image"}
   },
   "lessonSteps": [
     {"id": "observe", "title": "认识整车", "action": "打开部件标注并旋转模型。", "question": "哪些部件负责承载？", "evidence": "指出车架、前叉和轮组。"},

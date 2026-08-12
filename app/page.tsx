@@ -7,16 +7,16 @@ type Language = "zh" | "en";
 
 const copy = {
   zh: {
-    nav: ["能力", "在线案例", "制作流程", "安装 Skill"],
-    navIds: ["capabilities", "demo", "workflow", "install"],
+    nav: ["能力", "模型来源", "在线案例", "制作流程", "安装 Skill"],
+    navIds: ["capabilities", "model-source", "demo", "workflow", "install"],
     share: "分享项目",
     copied: "链接已复制",
-    eyebrow: "通用型 3D 教学内容生成器",
+    eyebrow: "真实模型优先的 3D 教学内容生成器",
     heroTitle: <>把任何知识对象，<br />变成一堂<em>能操作的课</em></>,
-    heroLead: "Teach3D 是面向教学场景的可复用 Skill。它把实物、结构、系统和过程制作成浏览器可用的 3D 互动课程，并同时考虑学习目标、课堂提问、双语说明与公开分享。",
+    heroLead: "Teach3D 优先接入自有、权威或开放授权的真实 3D 模型，再叠加双语讲解、教学热点、过程演示和课堂提问；只有在教学需要时才使用程序化示意模型。",
     tryDemo: "查看在线案例",
     install: "直接安装 Skill",
-    facts: [["通用", "不限定学科"], ["双语", "中文 / English"], ["免安装", "浏览器学习"], ["可复用", "一套制作流程"]],
+    facts: [["真实优先", "GLB / GLTF / 扫描"], ["授权检查", "来源与署名"], ["多端适配", "手机 / 电脑"], ["教学覆盖", "热点与导学"]],
     firstCase: "首个公开案例",
     caseName: "Marlin 6 机械系统教学",
     caseDesc: "山地车只是示例。Teach3D 同样适用于科学结构、实验设备、人体解剖、建筑构造、文物与更多教学主题。",
@@ -24,9 +24,13 @@ const copy = {
     capabilitiesKicker: "WHAT IT MAKES · 能做什么",
     capabilitiesTitle: "从“看模型”升级为“用模型学习”",
     capabilitiesLead: "每个项目都围绕教学目标设计，而不是只追求三维效果。",
+    sourceKicker: "MODEL SOURCE · 模型来源",
+    sourceTitle: "先选可信模型，再设计教学层",
+    sourceLead: "Teach3D 会把模型真实性、使用授权和网页性能放在同一条制作流程里。公开项目不会把“网上能看”误当成“可以下载和再发布”。",
+    sourceRule: "模型与教学分层：以后更换 GLB、扫描模型或精细版本时，不必重写导学内容。",
     demoKicker: "LIVE SHOWCASE · 在线案例",
-    demoTitle: "Trek Marlin 6：机械系统互动课",
-    demoLead: "当前案例用于展示 Teach3D 的完整输出：可操作模型、部件信息、引导步骤、课堂提问、分享页面和边界说明。",
+    demoTitle: "从机械结构到文化遗产",
+    demoLead: "公开案例用于验证同一套 Skill 能覆盖机械系统与历史建筑。Marlin 6 展示部件和传动；长城课程展示地形、节点和防御系统。",
     openLive: "打开独立在线演示",
     fullscreen: "课堂全屏",
     currentUi: "当前模型控件为中文，项目首页可切换中英文。",
@@ -37,7 +41,7 @@ const copy = {
     restart: "重新开始",
     workflowKicker: "WORKFLOW · 制作流程",
     workflowTitle: "像备课一样，分阶段制作 3D",
-    workflowLead: "参考 img2threejs 的分阶段与质量门思路，但把验收重点扩展到教学目标、可观察证据和课堂使用。",
+    workflowLead: "模型来源、授权、优化、教学和发布分别验收。没有解决授权或真实性问题的模型，不能进入公开交付。",
     installKicker: "QUICK INSTALL · 直接安装",
     installTitle: "下载后放进 Skill 目录，就能开始做新的教学主题",
     installLead: "安装包只包含 Teach3D Skill，不需要复制山地车网站。以后可以用同一流程制作其他学科和对象。",
@@ -51,16 +55,16 @@ const copy = {
     boundary: "Teach3D 生成的模型应明确区分事实、估算与教学简化；精确参数须核对权威资料。",
   },
   en: {
-    nav: ["Capabilities", "Live demo", "Workflow", "Install Skill"],
-    navIds: ["capabilities", "demo", "workflow", "install"],
+    nav: ["Capabilities", "Model source", "Live demo", "Workflow", "Install Skill"],
+    navIds: ["capabilities", "model-source", "demo", "workflow", "install"],
     share: "Share project",
     copied: "Link copied",
-    eyebrow: "A general-purpose 3D teaching builder",
+    eyebrow: "A real-model-first 3D teaching builder",
     heroTitle: <>Turn any subject into<br /><em>an interactive lesson</em></>,
-    heroLead: "Teach3D is a reusable skill for educational experiences. It turns objects, structures, systems, and processes into browser-based 3D lessons with learning goals, guided questions, bilingual documentation, and public sharing built in.",
+    heroLead: "Teach3D starts with owned, authoritative, or openly licensed 3D assets, then adds bilingual explanations, teaching hotspots, process overlays, and guided questions. Procedural geometry is reserved for intentional diagrams and fallbacks.",
     tryDemo: "Explore the live demo",
     install: "Install the Skill",
-    facts: [["General", "Any subject"], ["Bilingual", "中文 / English"], ["No setup", "Learn in browser"], ["Reusable", "One clear workflow"]],
+    facts: [["Real first", "GLB / glTF / scans"], ["Rights checked", "Source & credit"], ["Multi-device", "Mobile / desktop"], ["Teaching layer", "Hotspots & inquiry"]],
     firstCase: "First public showcase",
     caseName: "Marlin 6 mechanical systems lesson",
     caseDesc: "The mountain bike is one example, not the project category. Teach3D also fits scientific structures, lab equipment, anatomy, architecture, cultural objects, and more.",
@@ -68,9 +72,13 @@ const copy = {
     capabilitiesKicker: "WHAT IT MAKES",
     capabilitiesTitle: "Move from viewing a model to learning with it",
     capabilitiesLead: "Every output begins with a learning goal—not a visual effect.",
+    sourceKicker: "MODEL SOURCE",
+    sourceTitle: "Choose a trustworthy model before designing the teaching layer",
+    sourceLead: "Teach3D handles fidelity, usage rights, and browser performance in one workflow. A model being publicly viewable does not make it downloadable or redistributable.",
+    sourceRule: "Model and teaching stay separate, so a GLB, scan, or higher-detail asset can be replaced without rewriting the lesson.",
     demoKicker: "LIVE SHOWCASE",
-    demoTitle: "Trek Marlin 6: an interactive mechanical lesson",
-    demoLead: "This showcase demonstrates the complete Teach3D output: an operable model, component information, guided steps, classroom questions, a shareable page, and honest limits.",
+    demoTitle: "From mechanical systems to cultural heritage",
+    demoLead: "The showcases test one Skill across different subjects: Marlin 6 for components and transmission, and the Great Wall for terrain, nodes, and defensive-system reasoning.",
     openLive: "Open standalone live demo",
     fullscreen: "Classroom fullscreen",
     currentUi: "The current model controls are in Chinese; this project page is bilingual.",
@@ -81,7 +89,7 @@ const copy = {
     restart: "Start again",
     workflowKicker: "WORKFLOW",
     workflowTitle: "Build 3D in stages, the way teachers prepare lessons",
-    workflowLead: "Teach3D borrows the staged, quality-gated idea from img2threejs and adds learning objectives, observable evidence, and classroom delivery gates.",
+    workflowLead: "Model source, rights, optimization, teaching, and publishing are checked separately. A model with unresolved rights or weak fidelity cannot enter public delivery.",
     installKicker: "QUICK INSTALL",
     installTitle: "Place the downloaded folder in your Skills directory and start a new subject",
     installLead: "The package contains the reusable Teach3D Skill only. The mountain-bike website is a showcase, not a required template.",
@@ -111,6 +119,21 @@ const capabilities = {
   ],
 } as const;
 
+const modelSources = {
+  zh: [
+    ["01", "自有或用户提供", "优先使用已有 GLB / GLTF、CAD 转换模型或项目自有资产。", "最高优先级"],
+    ["02", "权威与开放资源", "核对机构、作者、许可证、修改权、再发布权和网页展示权。", "适合公开课"],
+    ["03", "摄影测量与扫描", "用于文物、地形、标本和真实表面；生成轻量与精细两档。", "拟真优先"],
+    ["04", "定制与程序建模", "按参考资料制作；简单几何体只用于结构示意或加载失败备用。", "明确边界"],
+  ],
+  en: [
+    ["01", "Owned or supplied", "Start with existing GLB/glTF, converted CAD, or project-owned assets.", "Top priority"],
+    ["02", "Authoritative & open", "Verify institution, creator, license, modification, redistribution, and web-display rights.", "Public-ready"],
+    ["03", "Photogrammetry & scans", "For heritage, terrain, specimens, and surface truth; prepare light and detailed versions.", "Fidelity first"],
+    ["04", "Custom & procedural", "Build from references; primitives remain diagrams or load-failure fallbacks.", "Bounded use"],
+  ],
+} as const;
+
 const lessons = {
   zh: [
     ["认识整车系统", "打开“部件标注”，从车架依次找到轮组、前叉、传动和制动系统。", "哪些部件负责承载，哪些部件负责传递运动？"],
@@ -127,8 +150,8 @@ const lessons = {
 } as const;
 
 const workflow = {
-  zh: [["01", "教学约定", "明确对象、学习者、目标与课时"], ["02", "事实边界", "区分已核实、估算与教学简化"], ["03", "结构建模", "按整体、系统、部件逐层制作"], ["04", "互动导学", "把操作、观察、提问与证据连起来"], ["05", "公开交付", "双语说明、在线链接、配图与安装路径"]],
-  en: [["01", "Lesson contract", "Define subject, learners, goals, and time"], ["02", "Truth boundary", "Separate verified, estimated, and illustrative claims"], ["03", "Structure build", "Model whole, systems, and parts in stages"], ["04", "Guided inquiry", "Connect actions, observations, questions, and evidence"], ["05", "Public delivery", "Bilingual docs, live URL, screenshots, and install paths"]],
+  zh: [["01", "教学约定", "明确对象、学习者、目标与课时"], ["02", "模型与授权", "选择真实来源并记录许可和署名"], ["03", "网页优化", "压缩模型、纹理并准备手机版本"], ["04", "教学覆盖", "热点、镜头与过程层不破坏原模型"], ["05", "导学验证", "连接操作、观察、提问与证据"], ["06", "公开交付", "双语页面、真实截图、链接和安装包"]],
+  en: [["01", "Lesson contract", "Define subject, learners, goals, and time"], ["02", "Model & rights", "Choose a truthful source and record license and credit"], ["03", "Web optimization", "Compress geometry and textures; prepare mobile quality"], ["04", "Teaching overlay", "Add hotspots, cameras, and processes without damaging the model"], ["05", "Lesson validation", "Connect actions, observations, questions, and evidence"], ["06", "Public delivery", "Bilingual page, real screenshots, links, and Skill package"]],
 } as const;
 
 export default function Home() {
@@ -189,6 +212,17 @@ export default function Home() {
         </figure>
       </section>
 
+      <section className="source-section" id="model-source">
+        <div className="section-heading">
+          <div><p className="section-kicker">{t.sourceKicker}</p><h2>{t.sourceTitle}</h2></div>
+          <p>{t.sourceLead}</p>
+        </div>
+        <div className="source-grid">
+          {modelSources[language].map(([number, title, description, tag]) => <article key={number}><span>{number}</span><b>{tag}</b><h3>{title}</h3><p>{description}</p></article>)}
+        </div>
+        <p className="source-rule">{t.sourceRule}</p>
+      </section>
+
       <section className="capabilities" id="capabilities">
         <div className="section-heading">
           <div><p className="section-kicker">{t.capabilitiesKicker}</p><h2>{t.capabilitiesTitle}</h2></div>
@@ -232,6 +266,10 @@ export default function Home() {
           <Image src="/assets/marlin-6-demo.jpg" alt="Trek Marlin 6 互动教学模型实际页面截图" width={960} height={800} />
           <figcaption>{language === "zh" ? "实际效果截图 · 部件标注、传动演示、分解视图与教学信息卡" : "Real output · component labels, drivetrain animation, exploded view, and teaching cards"}</figcaption>
         </figure>
+        <div className="showcase-links">
+          <a href="https://trek-marlin-6-mechanical-teaching.qitan874.chatgpt.site" target="_blank" rel="noreferrer"><span>01 · ENGINEERING</span><strong>{language === "zh" ? "Marlin 6 机械系统课" : "Marlin 6 mechanical systems"}</strong><em>↗</em></a>
+          <a href="https://along-the-ridge-great-wall.qitan874.chatgpt.site" target="_blank" rel="noreferrer"><span>02 · CULTURAL HERITAGE</span><strong>{language === "zh" ? "中国长城双语互动课" : "Bilingual Great Wall lesson"}</strong><em>↗</em></a>
+        </div>
       </section>
 
       <section className="workflow-section" id="workflow">

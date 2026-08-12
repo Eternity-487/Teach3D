@@ -4,14 +4,14 @@ import "./globals.css";
 export const metadata: Metadata = {
   metadataBase: new URL("https://trek-marlin-6-mechanical-teaching.qitan874.chatgpt.site"),
   title: "Teach3D｜把任何知识对象变成能操作的 3D 课程",
-  description: "通用型 3D 教学内容生成 Skill：把实物、结构、系统和过程制作成可操作、可提问、可分享的双语互动课程。",
+  description: "真实模型优先的 3D 教学 Skill：检查模型授权与来源，完成网页优化，再叠加双语热点、过程演示和课堂导学。",
   icons: {
     icon: "/favicon.svg",
     shortcut: "/favicon.svg",
   },
   openGraph: {
     title: "Teach3D｜把任何知识对象变成能操作的 3D 课程",
-    description: "通用教学类 3D Skill，包含双语说明、在线案例、效果配图和直接安装入口。",
+    description: "真实模型优先，兼顾授权、网页性能、双语教学热点、在线案例和直接安装。",
     images: [{ url: "/assets/teach3d-showcase.jpg", width: 1280, height: 640, alt: "Teach3D 通用互动教学项目" }],
     locale: "zh_CN",
     type: "website",

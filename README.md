@@ -15,7 +15,7 @@
 
 ## 中文
 
-Teach3D 是面向教学大类的可复用 Codex Skill，不限定山地车或机械专业。它可以把参考图片、真实物体、结构、设备、过程或已有 Three.js 模型，改造成浏览器可用的互动课程。
+Teach3D 是面向教学大类的可复用 Codex Skill，不限定山地车或机械专业。它优先使用自有、权威或开放授权的真实 3D 模型，将模型优化为浏览器可用版本，再叠加教学热点、双语讲解、过程演示和课堂导学。程序化简化模型只用于明确的结构示意或加载失败备用。
 
 Trek Marlin 6 是第一个公开案例，用于展示完整效果：可旋转模型、可选部件、分解视图、过程动画、载荷示意、课堂导学、提问和教学边界说明。
 
@@ -32,6 +32,18 @@ Trek Marlin 6 是第一个公开案例，用于展示完整效果：可旋转模
 - 科学与实验：实验仪器、物理过程、化学现象和操作步骤
 - 生命与医学：器官、细胞、解剖结构和流程示意
 - 建筑与文化：建筑构造、文物、地理空间和历史场景
+
+### 模型来源与拟真策略
+
+Teach3D 按以下优先级选择模型：
+
+1. 用户提供或项目自有的 GLB / GLTF / CAD 转换模型；
+2. 博物馆、科研机构、制造商或开放资源中的合法模型；
+3. 获得许可的摄影测量与扫描模型；
+4. 按参考资料定制的模型；
+5. 只用于示意或备用的程序化模型。
+
+公开交付前必须记录作者、来源、许可证、署名方式、修改权、再发布权和网页展示权。“网页上可以观看”不等于“可以下载并放进自己的项目”。重型模型会准备预览图、手机轻量版和电脑精细版，教学热点与视觉模型相互独立，方便以后替换模型而不重写课程。
 
 ### 直接安装 Skill
 
@@ -73,7 +85,7 @@ $teach3d 把现有 Three.js 人体心脏模型改造成高校入门课程，增�
 
 ### Skill 的制作流程
 
-`教学约定 → 事实边界 → 结构建模 → 互动导学 → 公开交付`
+`教学约定 → 模型与授权 → 网页优化 → 教学覆盖 → 导学验证 → 公开交付`
 
 Skill 使用分阶段验收。模型不仅要“能看”，还要满足：学生知道先做什么、能观察到什么、教师可以问什么、回答需要哪些可见证据。
 
@@ -99,7 +111,7 @@ Teach3D 要求区分已核实事实、视觉估算和教学简化。不得编造
 
 ## English
 
-Teach3D is a reusable Codex Skill for education as a broad category. It is not limited to mountain bikes or mechanical engineering. It turns reference images, real objects, structures, equipment, processes, or existing Three.js models into browser-based interactive lessons.
+Teach3D is a reusable Codex Skill for education as a broad category. It starts with owned, authoritative, or openly licensed 3D assets, prepares them for browser delivery, and adds teaching hotspots, bilingual explanations, process overlays, and guided inquiry. Procedural low-detail models are reserved for intentional diagrams and fallbacks.
 
 The Trek Marlin 6 is the first public showcase. It demonstrates the complete output: an orbitable model, selectable components, exploded views, process animation, load diagrams, guided lesson steps, classroom questions, and visible accuracy limits.
 
@@ -116,6 +128,18 @@ The Trek Marlin 6 is the first public showcase. It demonstrates the complete out
 - Science and labs: instruments, physical processes, chemistry, and procedures
 - Life and medicine: organs, cells, anatomy, and process explanations
 - Built and cultural subjects: architecture, artifacts, geography, and history
+
+### Model sourcing and fidelity
+
+Teach3D selects model sources in this order:
+
+1. user-supplied or project-owned GLB, glTF, or converted CAD;
+2. lawful assets from museums, institutions, manufacturers, or open repositories;
+3. licensed photogrammetry or scan data;
+4. reference-led custom models;
+5. procedural geometry used only as a diagram or fallback.
+
+Public delivery records creator, source, license, attribution, modification rights, redistribution rights, and public web-display rights. A publicly viewable model is not automatically reusable. Heavy assets should provide a preview, a mobile/light version, and a desktop/high version. The semantic teaching layer stays independent from the visual mesh so models can be upgraded without rebuilding the lesson.
 
 ### Install the Skill
 
@@ -153,7 +177,7 @@ $teach3d Turn this microscope into a bilingual interactive 3D lesson for seconda
 
 ### Workflow
 
-`lesson contract → truth boundary → structure build → guided interaction → public delivery`
+`lesson contract → model & rights → web optimization → teaching overlay → lesson validation → public delivery`
 
 Teach3D uses staged review gates. A model must do more than look good: learners need a clear first action, an observable change, a meaningful question, and visible evidence for an answer.
 

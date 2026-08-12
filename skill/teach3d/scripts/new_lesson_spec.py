@@ -11,7 +11,7 @@ from pathlib import Path
 def build_spec(subject: str, audience: str, duration: int, language: str) -> dict:
     step_time = max(1, duration // 4)
     return {
-        "schemaVersion": "1.1",
+        "schemaVersion": "1.2",
         "subject": subject,
         "audience": audience,
         "durationMinutes": duration,
@@ -34,6 +34,26 @@ def build_spec(subject: str, audience: str, duration: int, language: str) -> dic
                 "材质、光影与环境能够表现体积和尺度",
                 "最终模型不是未完成的基础几何体拼装",
             ],
+        },
+        "assetPlan": {
+            "sourceType": "to-be-selected",
+            "sourceUrl": "",
+            "creator": "",
+            "license": "unresolved",
+            "licenseUrl": "",
+            "attribution": "",
+            "permissions": {
+                "modify": False,
+                "redistribute": False,
+                "publicWebDisplay": False,
+            },
+            "delivery": {
+                "previewImage": "",
+                "mobileModel": "",
+                "desktopModel": "",
+                "initialPayloadTargetMB": 15,
+                "fallback": "text-and-image",
+            },
         },
         "lessonSteps": [
             {

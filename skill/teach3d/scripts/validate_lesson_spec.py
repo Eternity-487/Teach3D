@@ -19,6 +19,7 @@ REQUIRED_TOP = (
 )
 REQUIRED_STEP = ("id", "title", "action", "question", "evidence")
 REQUIRED_VISUAL = ("fidelityTier", "references", "signatureFeatures", "acceptanceCriteria")
+REQUIRED_ASSET = ("sourceType", "license", "permissions", "delivery")
 
 
 def main() -> None:
@@ -68,6 +69,21 @@ def main() -> None:
                 errors.append("visualPlan requires at least 3 signatureFeatures")
             if len(visual.get("acceptanceCriteria", [])) < 3:
                 errors.append("visualPlan requires at least 3 acceptanceCriteria")
+
+    if str(data.get("schemaVersion", "1.0")) >= "1.2":
+        asset = data.get("assetPlan")
+        if not isinstance(asset, dict):
+            errors.append("schemaVersion 1.2 requires assetPlan")
+        else:
+            for key in REQUIRED_ASSET:
+                if key not in asset:
+                    errors.append(f"assetPlan missing: {key}")
+            permissions = asset.get("permissions", {})
+            if not isinstance(permissions, dict):
+                errors.append("assetPlan.permissions must be an object")
+            delivery = asset.get("delivery", {})
+            if not isinstance(delivery, dict) or not delivery.get("fallback"):
+                errors.append("assetPlan.delivery requires a fallback")
 
     if errors:
         print("BLOCKED")

@@ -48,7 +48,7 @@ Do not begin a large model when the lesson contract is still generic.
 
 ### 3. Set a visual reference and fidelity target
 
-Read [references/visual-fidelity.md](references/visual-fidelity.md). Fill `visualPlan` in the lesson spec before making final geometry.
+Read [references/visual-fidelity.md](references/visual-fidelity.md) and [references/model-asset-pipeline.md](references/model-asset-pipeline.md). Fill `visualPlan` and `assetPlan` in the lesson spec before making final geometry.
 
 - Use at least two references when the subject has a recognizable real-world form: one for the whole silhouette or environment, and one for structure/material detail.
 - State the intended fidelity tier: `diagrammatic`, `recognizable`, or `reference-led`.
@@ -56,6 +56,16 @@ Read [references/visual-fidelity.md](references/visual-fidelity.md). Fill `visua
 - Prefer an existing trusted 3D asset when faithful organic anatomy, cultural heritage, sculpture, or a branded product cannot be represented credibly with procedural geometry.
 - Do not use a few boxes, cylinders, or spheres as the final public model unless the requested teaching style is explicitly schematic.
 - For terrain-bound subjects, generate the terrain first and make the structure follow it. For assemblies, establish proportions and attachment points before details. For organic subjects, preserve silhouette and major anatomical landmarks before internal teaching overlays.
+
+Choose the model source in this order:
+
+1. a user-provided or project-owned model;
+2. an authoritative, museum, scientific, manufacturer, or openly licensed model;
+3. a licensed photogrammetry/scan asset when surface truth matters;
+4. a reference-led custom model;
+5. procedural geometry only for diagrams, relationships, or a clearly labeled fallback.
+
+Never download, redistribute, or publish a third-party model until its license, attribution, modification right, and web-display right are recorded. A model page being publicly viewable does not mean its asset is reusable.
 
 ### 4. Build in gated passes
 
@@ -67,6 +77,8 @@ Use the installed project stack. Prefer plain Three.js or the project's current 
 4. `interaction`: orbit, zoom, reset, selection, keyboard/touch access, and optional explode/animation.
 5. `teaching`: labels, component cards, guided steps, questions, and learning evidence.
 6. `delivery`: responsive layout, projection/fullscreen, performance, bilingual copy, and sharing metadata.
+
+For imported models, make three delivery states when practical: a preview image, a mobile/low version, and a desktop/high version. Keep the teaching hotspot layer independent from the visual mesh so an asset can be replaced without rewriting the lesson.
 
 For component hierarchy, interaction patterns, and runtime constraints, read [references/threejs-teaching-patterns.md](references/threejs-teaching-patterns.md).
 
@@ -107,6 +119,8 @@ Before delivery, verify:
 
 - `Truth`: claims and displayed values are sourced or labeled as estimates.
 - `Fidelity`: the default view is recognizable without labels; signature features, silhouette, material response, context, and depth meet the chosen `visualPlan.fidelityTier`; primitive-only blockouts are rejected unless declared schematic.
+- `Asset rights`: source URL or owner, license, attribution, modification permission, redistribution permission, and web-display permission are recorded; unknown rights block public packaging.
+- `Performance`: the lesson has explicit model and texture budgets, a loading state, an error fallback, and a lower-cost path for mobile when the primary asset is heavy.
 - `Structure`: named parts correspond to real selectable groups; no important floating parts.
 - `Teaching`: each objective has an observable model action and a student response.
 - `Interaction`: selection, reset, labels, and critical demonstrations work.
