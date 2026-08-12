@@ -18,6 +18,7 @@ REQUIRED_TOP = (
     "boundaryNote",
 )
 REQUIRED_STEP = ("id", "title", "action", "question", "evidence")
+REQUIRED_VISUAL = ("fidelityTier", "references", "signatureFeatures", "acceptanceCriteria")
 
 
 def main() -> None:
@@ -50,6 +51,23 @@ def main() -> None:
     for required in ("orbit", "reset", "component-selection"):
         if required not in interactions:
             errors.append(f"requiredInteractions must include: {required}")
+
+    if str(data.get("schemaVersion", "1.0")) >= "1.1":
+        visual = data.get("visualPlan")
+        if not isinstance(visual, dict):
+            errors.append("schemaVersion 1.1 requires visualPlan")
+        else:
+            for key in REQUIRED_VISUAL:
+                if key not in visual:
+                    errors.append(f"visualPlan missing: {key}")
+            if visual.get("fidelityTier") not in {"diagrammatic", "recognizable", "reference-led"}:
+                errors.append("visualPlan.fidelityTier must be diagrammatic, recognizable, or reference-led")
+            if visual.get("fidelityTier") != "diagrammatic" and len(visual.get("references", [])) < 2:
+                errors.append("recognizable/reference-led visualPlan requires at least 2 references")
+            if len(visual.get("signatureFeatures", [])) < 3:
+                errors.append("visualPlan requires at least 3 signatureFeatures")
+            if len(visual.get("acceptanceCriteria", [])) < 3:
+                errors.append("visualPlan requires at least 3 acceptanceCriteria")
 
     if errors:
         print("BLOCKED")

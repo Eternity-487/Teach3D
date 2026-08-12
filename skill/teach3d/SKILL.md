@@ -46,21 +46,33 @@ Do not begin a large model when the lesson contract is still generic.
 - Link or name authoritative sources when the lesson depends on exact values.
 - Add a visible boundary note when the output is illustrative rather than a manufacturing, medical, laboratory, or repair reference.
 
-### 3. Build in gated passes
+### 3. Set a visual reference and fidelity target
+
+Read [references/visual-fidelity.md](references/visual-fidelity.md). Fill `visualPlan` in the lesson spec before making final geometry.
+
+- Use at least two references when the subject has a recognizable real-world form: one for the whole silhouette or environment, and one for structure/material detail.
+- State the intended fidelity tier: `diagrammatic`, `recognizable`, or `reference-led`.
+- Identify the subject's signature features. A model that omits them is still a blockout, even if it is interactive.
+- Prefer an existing trusted 3D asset when faithful organic anatomy, cultural heritage, sculpture, or a branded product cannot be represented credibly with procedural geometry.
+- Do not use a few boxes, cylinders, or spheres as the final public model unless the requested teaching style is explicitly schematic.
+- For terrain-bound subjects, generate the terrain first and make the structure follow it. For assemblies, establish proportions and attachment points before details. For organic subjects, preserve silhouette and major anatomical landmarks before internal teaching overlays.
+
+### 4. Build in gated passes
 
 Use the installed project stack. Prefer plain Three.js or the project's current wrapper.
 
-1. `blockout`: silhouette, scale relationships, camera, and orientation.
-2. `systems`: named component groups and correct attachment relationships.
-3. `interaction`: orbit, zoom, reset, selection, keyboard/touch access, and optional explode/animation.
-4. `teaching`: labels, component cards, guided steps, questions, and learning evidence.
-5. `delivery`: responsive layout, projection/fullscreen, performance, bilingual copy, and sharing metadata.
+1. `blockout`: silhouette, scale relationships, camera, orientation, and environment relationship.
+2. `fidelity`: signature features, continuous forms, surface variation, material response, lighting, depth, and recognizable context.
+3. `systems`: named component groups and correct attachment relationships.
+4. `interaction`: orbit, zoom, reset, selection, keyboard/touch access, and optional explode/animation.
+5. `teaching`: labels, component cards, guided steps, questions, and learning evidence.
+6. `delivery`: responsive layout, projection/fullscreen, performance, bilingual copy, and sharing metadata.
 
 For component hierarchy, interaction patterns, and runtime constraints, read [references/threejs-teaching-patterns.md](references/threejs-teaching-patterns.md).
 
 Do not advance a pass when its visible acceptance criteria fail. Report what improved and what remains approximate.
 
-### 4. Make the lesson operable
+### 5. Make the lesson operable
 
 Every public teaching model should include:
 
@@ -75,7 +87,7 @@ Every public teaching model should include:
 
 Add explode, motion, loads, section views, or comparison only when they support the learning goal.
 
-### 5. Package for other users
+### 6. Package for other users
 
 For a public repository, include:
 
@@ -94,6 +106,7 @@ Keep one canonical checkout and symlink hosts to it when supporting several agen
 Before delivery, verify:
 
 - `Truth`: claims and displayed values are sourced or labeled as estimates.
+- `Fidelity`: the default view is recognizable without labels; signature features, silhouette, material response, context, and depth meet the chosen `visualPlan.fidelityTier`; primitive-only blockouts are rejected unless declared schematic.
 - `Structure`: named parts correspond to real selectable groups; no important floating parts.
 - `Teaching`: each objective has an observable model action and a student response.
 - `Interaction`: selection, reset, labels, and critical demonstrations work.
@@ -101,7 +114,7 @@ Before delivery, verify:
 - `Access`: controls have labels; color is not the only information channel; reduced motion is respected.
 - `Sharing`: title, description, screenshot, demo link, and install path are current.
 
-Run the existing project build and tests. If browser inspection is available and requested, test the real deployed route rather than an isolated mock.
+Run the existing project build and tests. For a visual model, capture the default view at desktop size and compare it against the `visualPlan.acceptanceCriteria`; do not publish when it still reads as a blockout. If browser inspection is available and requested, test the real deployed route rather than an isolated mock.
 
 ## Output
 

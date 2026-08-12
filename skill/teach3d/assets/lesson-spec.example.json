@@ -1,5 +1,5 @@
 {
-  "schemaVersion": "1.0",
+  "schemaVersion": "1.1",
   "subject": "Trek Marlin 6 山地自行车（教学示例）",
   "audience": "机械基础课程学习者",
   "durationMinutes": 8,
@@ -8,6 +8,15 @@
   "assumptions": ["模型比例与配置用于课堂示意，精确参数需核对官方资料。"],
   "learningObjectives": ["识别主要系统", "追踪动力传递", "解释制动与载荷"],
   "components": ["frame", "fork", "wheels", "drivetrain", "brakes", "cockpit"],
+  "visualPlan": {
+    "fidelityTier": "reference-led",
+    "references": [
+      "Trek Marlin 6 official product photography",
+      "User-provided bicycle reference image"
+    ],
+    "signatureFeatures": ["hardtail frame silhouette", "front suspension fork", "29-inch wheel proportion", "external drivetrain"],
+    "acceptanceCriteria": ["默认视角可识别为现代硬尾山地车", "车架、前叉与轮组比例协调", "传动与制动部件在近景可辨认"]
+  },
   "lessonSteps": [
     {"id": "observe", "title": "认识整车", "action": "打开部件标注并旋转模型。", "question": "哪些部件负责承载？", "evidence": "指出车架、前叉和轮组。"},
     {"id": "drive", "title": "追踪传动", "action": "打开传动演示。", "question": "输入如何到达后轮？", "evidence": "按顺序说明曲柄、链条、飞轮和后轮。"},
