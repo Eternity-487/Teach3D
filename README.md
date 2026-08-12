@@ -38,7 +38,7 @@ Trek Marlin 6 是第一个公开案例，用于展示完整效果：可旋转模
 推荐直接从 GitHub 安装，后续更新也更方便：
 
 ```bash
-git clone https://github.com/Eternity-487/bikelab-3d-trek-marlin-6.git ~/.codex/skills/teach3d
+git clone https://github.com/Eternity-487/Teach3D.git ~/.codex/skills/teach3d
 ```
 
 也可以[下载 `teach3d-skill.zip`](https://trek-marlin-6-mechanical-teaching.qitan874.chatgpt.site/teach3d-skill.zip)，再运行：
@@ -122,7 +122,7 @@ The Trek Marlin 6 is the first public showcase. It demonstrates the complete out
 The recommended installation keeps the Skill easy to update from GitHub:
 
 ```bash
-git clone https://github.com/Eternity-487/bikelab-3d-trek-marlin-6.git ~/.codex/skills/teach3d
+git clone https://github.com/Eternity-487/Teach3D.git ~/.codex/skills/teach3d
 ```
 
 Alternatively, [download `teach3d-skill.zip`](https://trek-marlin-6-mechanical-teaching.qitan874.chatgpt.site/teach3d-skill.zip), then run:
